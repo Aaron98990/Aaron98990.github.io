@@ -5,6 +5,7 @@ plugins:
   - jekyll-octicons
   - jekyll-github-metadata
   - jemoji
+  - jekyll-seo-tag
 
 permalink: /:year/:month/:day/:title/
 
@@ -15,6 +16,10 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+# Configuration doc: https://jekyllrb.com/docs/configuration/
+
+
 
 projects:
   sort_by: pushed
@@ -38,7 +43,7 @@ social_media:
   linkedin: aaronfeleke
   # mastodon: your_username
   # medium: your_username
-  # stackoverflow: your_user_id
+  stackoverflow: aaron98990
   # telegram: your_username
   # twitter: your_username
   # unsplash: your_username

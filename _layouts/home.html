@@ -1,59 +1,135 @@
-{% include header.html %}
-
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2DW7QMEG5H"></script>
 <script>
-window.location.href= "http://www.feleke.xyz/"
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2DW7QMEG5H');
 </script>
+</head>
+<title>Aaron Feleke</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles/index.css">
+<script src="scripts/index.js"></script>
 
-{% if site.layout == 'stacked' %}
-  <div class="container-lg py-6 p-responsive text-center">
-    {% include masthead.html metadata=true %}
 
-    <div {% if site.style == 'dark' %}class="text-white"{% endif %}>
-      {{ content }}
+
+<div class="one-line" style="width: max-content">
+    <div id="profile" style="width:max-content;padding-right:10px;">
+    <h1 style="padding:0;margin:0">Aaron Feleke</h1>
+    
+        Developer & Designer<br>
+    Soccer Referee since 2013<br>
+    Trinity Universiy CS 2021<br>
+    Engineer @ Capgemini<br>
+    <div style="text-align:center; padding-top: 3px;">
+    <img src="assets/github.png" onclick="window.location.href='https://www.github.com/Aaron98990'" alt="Italian Trulli" style="width:30px;border-radius: 20px;cursor: pointer;">
+<img src="assets/linkedin.png" alt="Italian Trulli" onclick="window.location.href='https://www.linkedin.com/in/feleke'" style="width:30px;border-radius: 10px;cursor: pointer;">
+</div>
+    </div>
+    <div style="width:max-content;right:0px;">
+        <img id="first-image" src="assets/me.png" alt="Italian Trulli" style="width:150px;border-radius: 10px;">    
+        <img id="second-image" src="assets/me.png" alt="Italian Trulli" style="width:150px;border-radius: 10px;filter: hue-rotate(254deg);">   
+        <img id="third-image" src="assets/me.png" alt="Italian Trulli" style="width:150px;border-radius: 10px;filter:hue-rotate(194deg);">   
+    </div>
+        
+
+
+</div>
+</div>
+<div class="flex-container" style="background-color: rgb(250, 251, 252)">
+    <div class="spacer">
+    <div class="tile">
+        <div class="tile-body">
+<h2 class="header">Tip Of the Tounge</h2>
+<div class="icon"></div>
+<div class="description">Play Jeopardy, remotely! Compete individually or in teams with the built-in buzzer & scoring system!</div>
+<button onclick="window.location.href='http://www.buzzin.feleke.xyz/'">Website</button>
+</div>
+</div>
+</div>
+
+<div class="spacer">
+<div class="tile">
+    <div class="tile-body">
+    <h2 class="header">Wii Inspect</h2>
+    <div class="icon"></div>
+    <div class="description">Decode memories from the binary file to find high scrores, stamps, and recent plays from Wii Sports Resport!</div>
+    <button onclick="window.location.href='https://github.com/Aaron98990/wii-inspect'">GitHub</button>
+</div>
+</div>
+</div>
+
+<div class="spacer">
+<div class="tile">
+    <div class="tile-body">
+
+    <h2 class="header">Red Card Report</h2>
+    <div class="icon"></div>
+    <div class="description">For high school, soccer referees can use this website in order to a create a standardized ejection report. </div>
+    <button onclick="window.location.href=window.location.origin + '/ejection'">Website</button>
+</div>
+</div>
+</div>
+
+<div class="spacer">
+<div class="tile">
+    <div class="tile-body">
+
+    <h2 class="header">Wuhu Island Map</h2>
+    <div class="icon"></div>
+    <div class="description">An interactive map with location information & route planning for Wuhu Islands in Wii Sports Resort.</div>
+    <button onclick="window.location.href=window.location.origin + '/map'">Website</button>
+</div>
+</div>
+</div>
+
+<div class="spacer">
+    <div class="tile">
+        <div class="tile-body">
+    
+        <h2 class="header">Offside Quiz</h2>
+        <div class="icon"></div>
+        <div class="description">Calling offside as an assistant referee in soccer is very challenging. Are you ready for the challenge?</div>
+        <button onclick="window.location.href=window.location.origin + '/offside'">Website</button>
+    </div>
+    </div>
     </div>
 
-    <div class="my-6">
-      {% include projects.html %}
+    <div class="spacer">
+        <div class="tile">
+            <div class="tile-body">
+    <h2 class="header">Jeopardy Board Editor</h2>
+    <div class="icon"></div>
+    <div class="description">Create, share, customize, and print your Jeopardy Board. Drag & Drop Clues.</div>
+    <button onclick="window.location.href='http://www.buzzin.feleke.xyz/board'">Website</button>
+    </div>
+    </div>
     </div>
 
-    {% if site.topics %}
-      <div class="my-6">
-        {% include interests.html %}
-      </div>
-    {% endif %}
+<div class="spacer">
+    <div class="tile">
+        <div class="tile-body">
 
-    {% unless posts_total == 0 %}
-      <div class="my-6">
-        {% include thoughts.html %}
-      </div>
-    {% endunless %}
-  </div>
-{% else %}
-  <div class="d-md-flex min-height-full {% unless site.style == 'dark' %}border-md-bottom{% endunless %}">
-    <div class="flex-self-stretch {% if site.style == 'dark' %}bg-gray-dark{% else %}border-md-right border-gray-light bg-white{% endif %} col-md-5 col-lg-4 col-xl-3 px-4 px-md-6 px-lg-7 py-6">
-      {% include masthead.html metadata=true %}
+        <h2 class="header">Bookmarks Extension</h2>
+        <div class="icon"></div>
+        <div class="description">No ads. No news. Just your links. 100's of them. On every new tab.</div>
+        <button href="https://github.com/Aaron98990/wii-inspect">TBA</button>
     </div>
-
-    <div class="col-md-7 col-lg-8 col-xl-9 px-4 py-6 px-lg-7 border-top border-md-top-0 bg-gray-light" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %}>
-      <div class="mx-auto" style="max-width: 900px;">
-        {% unless content == ""  %}
-          <div class="f4 {% if site.style == 'dark' %}text-white{% endif %} mb-6">
-            {{ content }}
-          </div>
-        {% endunless %}
-
-        {% include projects.html %}
-
-        {% if site.topics %}
-          {% include interests.html %}
-        {% endif %}
-
-        {% unless posts_total == 0 %}
-          {% include thoughts.html %}
-        {% endunless %}
-      </div>
     </div>
-  </div>
-{% endif %}
+</div>
 
-{% include footer.html %}
+
+    <div class="spacer">
+        <div class="tile">
+            <div class="tile-body">
+
+            <h2 class="header">Gradebook</h2>
+            <div class="icon"></div>
+            <div class="description">An application that manages course registration, grades, and particpant profiles.</div>
+            <button href="https://github.com/Aaron98990/wii-inspect">TBA</button>
+        </div>
+        </div>
+    </div>
+</div class="flex-container">

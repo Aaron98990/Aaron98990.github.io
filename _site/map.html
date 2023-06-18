@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wii Sports Resort Island Flyover</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DW7QMEG5H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2DW7QMEG5H');
+    </script>
+</head>
+<link rel="icon" href="Wii.png">
+<body>
+<table><tr><td style="width: 505px;">
+Welcome to Wuhu Islands and Wedge Island! Click square to visit iPoint.<br>
+
+<div id="container">
+<img class='img' src='assets/map.png' />
+<canvas id="gameCanvas" width="500" height="600"></canvas>
+</div>
+<br>
+
+
+Unconfirmed High Score: 
+<a href="https://www.youtube.com/watch?v=Zvgl3T-_nuY&ab_channel=buch1910">69 iPoints</a> <button onclick="highscore1()" class="highscore1">Load</button> / 
+<a href="https://www.youtube.com/watch?v=XWYmRN3Wyv8&ab_channel=buch1910">No Crashes: 61 iPoints</a> <button onclick="highscore2()" class="highscore2">Load</button>
+</td>
+
+<td style="width:220px">
+<button onclick="resetButton()" class="reset">Reset</button>
+<button onclick="replayButton()" class="replay">Replay</button>
+<button onclick="undoButton()" class="undo">Undo</button>
+<button onclick="randomButton()" class="random">Random</button>
+<br><br>
+Distance: <span id="distance">0</span> units<br><br>
+Visited (<span id="counter">0</span>):
+<div id="visited"></div>
+<pre id="output"></pre>
+(*) are moving iPoints.
+</td><td style="width:220px">
+Click name to visit iPoint.<br>
+<input type="text" id="myInput" onkeyup="iPointsFilter()" placeholder="Search for iPoints.."> <br>
+<table id="ipoints">
+</table>
+<td>
+</td>
+<td style="max-width:500px"><span id="extrainfo">Here is the full list of iPoints on Wuhu Island and Wedge Island that can be found in Island Flyover in Wii Sports Resort, as well as in Pilotwings Resort. There are 80 different iPoints in total. As you collect i Points, you'll be able to fly at different times of day (day, evening, night). Names and descriptions differ by version.
+
+
+<p>Send up a flare (press 1 on the Wiimote) and Miguel will send up an orange flare revealing his location (which is an iPoint). Follow him along his various paths to find i Points (or use this guide). Also, this guide can help you to decide your route so you can get a record amount of iPoints in 5 minutes. Thrusting the remote forward will temporarily increase your speed. Doing this many times will help you get iPoints more quickly (but it hurts).</p>
+<h2><span id="Appearances">Appearances</span></h2>
+<ul><li><i><a href="/wiki/Wii_Fit" title="Wii Fit">Wii Fit</a></i> <small>(First appearance, 2007)</small></li>
+<li><i><a href="/wiki/Wii_Sports_Resort" title="Wii Sports Resort">Wii Sports Resort</a></i> <small>(First major appearance, 2009)</small></li>
+<li><i><a href="/wiki/Wii_Fit_Plus" title="Wii Fit Plus">Wii Fit Plus (2009)</a></i></li>
+<li><i>Pilotwings Resort (2011)</i></li>
+<li><i>Mario Kart 7 (2011)</i></li>
+<li><i><a target="_blank" rel="noreferrer noopener"  href="https://wiisports.fandom.com/wiki/Wii_Fit_U">Wii Fit U (2013)</a> </i></li>
+<li><i>Super Smash Bros. for Nintendo 3DS (2014)</i></li>
+<li><i>Super Smash Bros. For Wii U (2014)</i></li>
+<li><i>Mario Kart 8 Deluxe (For Switch, 2017)</i></li>
+<li><i>Super Smash Bros. Ultimate </i>(Latest appearance, 2018)</li></ul>
+
+</div>
+
+Collecting certain amounts of i Points in Island Flyover mode unlocks the following features.
+<ul><li><b>10 </b> - You can now pop balloons! (Adds balloons to shoot with your gun)</li><li><b>20 </b> - You can now fly in the evening!</li><li><b>30 </b> - You can now use the double blaster!</li><li><b>40 </b> - You can now fly at night!</li><li><b>50 </b> - The islands are now lit up at night! (By fireworks)</li><li><b>60 </b> - You can now fly a two-seater plane! (with a friend)</li><li><b>70 </b> - The Whale Shark has a new design! (Your Mii will be pictured on the side for all games in Wii Sports Resort)</li><li><b>80 </b> - A vacation house has been built for you! ( on the Private Island )</li></ul>
+
+<h3>Island Flyover Stamps</h3><ul>
+<li><b>Island Hopper (Visit Wedge Island) </b>- Visit any i point on Wedge Island. Wedge Island is the large island a little way away from the main island, where the golf courses are located.</li>
+<li><b>Pop Frenzy (Popfest 150) </b>- Pop 150 balloons in the course of one flight. This includes balloons on planes or vehicles and small balloons released from larger ones.</li>
+<li><b>Follow That Plane </b>- Follow Miguel's guide plane around the island for at least three minutes. Watch the smoke trail left by Miguel's plane. It changes color while you are following him. If you can't find him, try firing a flare.</li>
+<li><b>Wuhu Tour Guide (Wuhupedia)</b> - Collect all the i points in the daytime, evening, and night. There are 80 locations, with new information for each time of day. That's 240 I points in total! (Once you get all 80 iPoints, the number of iPoints per day, evening, and night is shown. Also, clicking iPoints on the map at the end of the game will show when you got it. </li>
+<li><b>Balloonatic (Balloonist Extraordinaire)</b> - Pop every white balloon at all times of day. Once popped, white balloons will be a different color the next time you play. Balloons on planes or vehicles and small balloons released from larger ones don't count for this stamp. (A popup with the number of balloons remaining will appear when you are close. Don't forget to pop baloons on boats. Get the other stamps before doing this.)</li>
+</ul>
+
+</span><br><br>
+Information from <a target="_blank"  href='https://wiisports.fandom.com/wiki/List_of_iPoints'>Wii Sports Fadom</a> and public usage is under <a target="blank" href='LICENSE.txt'>CC-BY-SA</a>.
+</td>
+</table>
+<style type="text/css">
+canvas {
+border: 1px solid black
+}
+table td, table td * {
+    vertical-align: top;
+}
+.img{position:absolute;z-index:1;}
+#container{
+    display:inline-block;
+    width:500px; 
+    height:600px;
+    margin: 0 auto; 
+    background: white;
+    position:relative; 
+}
+#gameCanvas{
+    position:relative;
+    z-index:20;
+}
+</style>
+<script src="scripts/map.js"></script>
+</body>
+</html>

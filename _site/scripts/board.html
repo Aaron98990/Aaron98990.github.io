@@ -1,0 +1,1705 @@
+<html>
+
+<head>
+    <title>Edit Board</title>
+    <link type="text/css" rel="styleSheet" href="board.css">
+    <style>
+
+@media print {
+    .clue_value_input, #options{
+        display: none;
+    }
+
+    .clue textarea {
+      height: 100px !important;
+      font-size: 12px !important;
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+
+    .clue input[type=text] {
+      color: green;
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-size: 12px !important;
+    }
+
+    h2 {
+        margin: 0;
+        padding: 0;
+        position: inherit !important;
+    }
+
+    textarea {
+  resize: none;
+  color: black;
+  overflow: hidden;
+}
+
+::placeholder {
+  color: blue;
+  opacity: 0.05;
+}
+
+/* https://web.dev/drag-and-drop/#add-additional-visual-cues-with-dragenter-dragover-and-dragleave */
+.box.over {
+  border: rgb(196, 0, 0) !important;
+}
+
+table {
+border-collapse: collapse;
+}
+
+    .pagebreak { page-break-before: always; 
+    /* https://stackoverflow.com/questions/1664049/can-i-force-a-page-break-in-html-printing?answertab=trending#tab-top */
+    }
+
+    @page {size: landscape;zoom: 100%;}
+    
+}
+
+
+
+
+    </style>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-64NV3QFJLC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-64NV3QFJLC');
+</script>
+</head>
+
+<body>
+<!-- 
+document.getElementById("single_round").querySelectorAll("#correction_clue_daily_double")
+document.getElementById("single_round").querySelectorAll("#correction_clue_correct_response")
+document.getElementById("single_round").querySelectorAll(".clue")
+document.getElementById("single_round").querySelectorAll(".category")
+ -->
+
+    <div id="content">
+        <div id="options">
+        <div id="game_title">
+            <h1>Edit Board</h1>
+        </div>
+        <div id="game_comments"></div>
+        <button id="import" onclick="restartGame2.style.display='block'">Import JSON</button>
+        <button onclick="restartGame3.style.display='block'">Import JArchive</button>
+        <button id="export" onclick="createJson();">Export JSON</button>
+        <button id="export" onclick="resetBoard();">Reset</button>
+        <button onclick="alert('Printing is only compatible with Google Chrome or Microsoft Edge.'); window.print();">Print</button>
+        Include Rounds: 
+        <input type="checkbox" id="includeSingle" checked>
+        <label for="vehicle1">Single</label>
+        <input type="checkbox" id="includeDouble" checked>
+        <label for="vehicle2">Double</label>
+        <input type="checkbox" id="includeFinal" checked>
+        <label for="vehicle3">Final</label>
+| 
+        <input type="checkbox" id="autoChooseDD" checked>
+        <label for="vehicle4">Auto-choose Double Dares</label>
+        
+        <script>
+
+
+
+// Save changes message when closing screen
+window.addEventListener('beforeunload', function (e) {
+                e.preventDefault();
+                e.returnValue = '';
+        });
+
+function getClueId(e){
+    var target = (e.target) ? e.target: e.srcElement;
+            if (target.closest("td.clue")){
+                // console.log(target.closest("td.clue").id)
+                return target.closest("td.clue").id
+            }
+}
+
+function getClueIdByEl(el){
+    // console.log(el.closest("td.clue"))
+            if (el.closest("td.clue")){
+                // console.log(el.closest("td.clue").id)
+                return el.closest("td.clue").id
+            }
+}
+
+function deleteClue(el){
+    el.closest("td.clue").querySelector("textarea").value = ""
+    el.closest("td.clue").querySelector("input[type=text]").value = ""
+    saveBackUp();
+
+}
+
+
+
+function onDrop(e) {
+  var data = e.dataTransfer.getData("text/plain");
+  var target = (e.target) ? e.target: e.srcElement;
+  console.log("target", target.closest("td.clue"))
+  var tmp1 = target.closest("td.clue").querySelector("textarea").value
+  var tmp2 = target.closest("td.clue").querySelector("input[type=text]").value
+  target.closest("td.clue").querySelector("textarea").value = document.getElementById(data).querySelector("textarea").value
+    target.closest("td.clue").querySelector("input[type=text]").value = document.getElementById(data).querySelector("input[type=text]").value 
+    document.getElementById(data).querySelector("textarea").value = tmp1
+    document.getElementById(data).querySelector("input[type=text]").value = tmp2
+
+    
+  e.preventDefault();
+}
+
+
+
+        window.addEventListener('mousemove', function (e) {
+
+            setClueIds()
+            getClueId(e)
+            
+                
+        });
+        
+function saveBackUp(){
+        if (createJson(false)){
+localStorage.setItem('board', JSON.stringify(createJson(false)));
+}
+}
+
+        window.addEventListener('keyup', function (e) {
+
+          saveBackUp()
+        });
+
+        window.addEventListener('paste', function (e) {
+
+          saveBackUp()
+}); 
+            
+      includeSingle.addEventListener('change', (event) => {
+        if (event.currentTarget.checked) {
+            single_round.style.display = "block"
+        } else {
+            single_round.style.display = "none"
+        }
+      })
+      
+      
+      includeDouble.addEventListener('change', (event) => {
+        if (event.currentTarget.checked) {
+            double_round.style.display = "block"
+        } else {
+            double_round.style.display = "none"
+        }
+      })
+      
+      
+      includeFinal.addEventListener('change', (event) => {
+        if (event.currentTarget.checked) {
+            final_round.style.display = "block"
+        } else {
+            final_round.style.display = "none"
+        }
+      })
+
+      autoChooseDD.addEventListener('change', (event) => {
+        if (event.currentTarget.checked) {
+            Array.from(document.querySelectorAll(".clue [type=checkbox], .clue label")).map(x => x.style.display = "none")
+        } else {
+          Array.from(document.querySelectorAll(".clue [type=checkbox], .clue label")).map(x => x.style.display = "inline")
+        }
+      })
+
+
+      
+      </script>
+      </div>
+      
+        <div id="single_round">
+            <h2>Single Round</h2>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>              
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+<!-- Pagebreak is for printing Read more: https://stackoverflow.com/questions/1664049/can-i-force-a-page-break-in-html-printing?answertab=trending#tab-top -->
+        <div class="pagebreak"> </div>
+
+
+        <div id="double_round">
+            <h2>Double Round</h2>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>
+                        <td class="category">
+                          <div>
+                            <textarea></textarea>
+                          </div>
+                        </td>              
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagebreak is for printing Read more: https://stackoverflow.com/questions/1664049/can-i-force-a-page-break-in-html-printing?answertab=trending#tab-top -->
+        <div class="pagebreak"> </div>
+
+        <div id="final_round">
+            <h2>Final Round</h2>
+<table>
+    <tbody>
+        <tr>
+                <div class="category">
+                            <textarea></textarea>
+            <div class="clue">
+                            <textarea></textarea>
+                <input type="text" placeholder="Answer">
+            </div>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+
+
+        <div id="restartGame" style="display:none;"><h2>Export JSON</h2>
+          <p>Your file is now downloading. </p>
+
+<p>NEVER EDIT THE FILE DIRECTLY. To edit the file again, use the IMPORT JSON button. To use the board in a room, the host will use IMPORT JSON BOARD button.</p>
+        
+        <button type="submit" class="start-button" id="submit-button" onclick="restartGame.style.display='none'">
+            Done
+          </button>
+        </div>
+
+        <div id="restartGame2" style="display:none;"><h2>Import JSON</h2>
+            <p>Paste the text from the .JSON file below. The .JSON file is created by using the EXPORT JSON button.</p>
+             
+            <p>Click <a style="color:rgb(124, 249, 132)" target=”_blank” href="../examples/default.json">here</a> for a sample JSON import.</p>
+            
+            <textarea name="" id="importText" style="width:100%"></textarea>
+            <br><br>
+            <div style="text-align: center;">
+            <button type="submit" class="start-button" id="submit-button" onclick="restartGame2.style.display='none'" style="width:200px;">
+                Cancel
+              </button>
+              <button type="submit" class="start-button" id="submit-button" onclick="imoprtJsonNow(importText.value)">
+                Import Board
+              </button>
+            </div>
+            </div>
+
+            <div id="restartGame3" style="display:none;"><h2>Import JArchive</h2>
+                <p>
+                  Copy and paste the Page Source from link from <a target=”_blank” style="color:rgb(124, 249, 132)" href="https://j-archive.com">j-archive.com</a> that contains the board you want to import.
+                </p>
+                <p>A sample board is <a style="color:rgb(124, 249, 132)" target=”_blank” href="https://j-archive.com/showgame.php?game_id=5416">here</a>.
+                Right click the board then click "View Page Source" in Google Chrome.</p>
+              <p>Then completely copy all text (Command + A or Ctrl + A) then paste in the field below.</p>
+              <div style="text-align: center;">
+                  <img src="ja.png" width="200">
+                <img src="ja2.png" width="200">
+              </div>
+              
+              <br>
+                <textarea name="" id="importHTML" style="width:100%"></textarea>
+                <br>
+                <div style="text-align: center;">
+                  <button type="submit" class="start-button" id="submit-button" onclick="restartGame3.style.display='none'">
+                    Cancel
+                  </button>
+                  <!-- The if (CreateJSON and local storage part ensures that this becomes the most recent version saved) -->
+                <button type="submit" class="start-button" id="submit-button" onclick="importJArchiveNow(importHTML.value);            if (createJson(false)){
+                  localStorage.setItem('board', JSON.stringify(createJson(false)));
+                  }">
+                    Import Board
+                  </button>
+                </div>
+                </div>
+
+
+        <script type="text/javascript">
+
+var board = {
+  "single": [
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN",
+          "doubleDare": true
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    }
+  ],
+  "double": [
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN",
+          "doubleDare": true
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN",
+          "doubleDare": true
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    },
+    {
+      "category": "FILL IN",
+      "questions": [
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        },
+        {
+          "question": "FILL IN",
+          "answer": "FILL IN"
+        }
+      ]
+    }
+  ],
+  "final": {
+    "category": "FILL IN",
+    "question": "FILL IN",
+    "answer": "FILL IN"
+  }
+}
+
+
+Array.from(document.querySelectorAll(".clue input[type=text]")).map(x => x.maxLength = "100")
+Array.from(document.querySelectorAll(".clue textarea")).map(x => x.maxLength = "200")
+Array.from(document.querySelectorAll(".category textarea")).map(x => x.maxLength = "50")
+
+
+// From https://stackoverflow.com/questions/7658549/importing-a-text-document-into-html
+function downloadFile(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+function resetBoard(){
+
+    localStorage.clear();
+    window.location.reload();
+
+}
+
+function createJson(checkIfValid=true){
+    board = {}
+    var singleDDs, doubleDDs;
+    if (single_round.style.display != "none"){
+singleDDs = Array.from(document.getElementById("single_round").querySelectorAll("input[type=checkbox]")).map(x => x.checked)
+var singleAnswers = Array.from(document.getElementById("single_round").querySelectorAll("input[type=text]")).map(x => x.value)
+var singleClues = Array.from(document.getElementById("single_round").querySelectorAll(".clue textarea")).map(x => x.value)
+var singleCategories = Array.from(document.getElementById("single_round").querySelectorAll(".category textarea")).map(x => x.value)
+    }
+
+    if (double_round.style.display != "none"){
+doubleDDs = Array.from(document.getElementById("double_round").querySelectorAll("input[type=checkbox]")).map(x => x.checked)
+var doubleAnswers = Array.from(document.getElementById("double_round").querySelectorAll("input[type=text]")).map(x => x.value)
+var doubleClues = Array.from(document.getElementById("double_round").querySelectorAll(".clue textarea")).map(x => x.value)
+var doubleCategories = Array.from(document.getElementById("double_round").querySelectorAll(".category textarea")).map(x => x.value)
+    }
+
+    // This is for the autochoosing double dare function oto work
+    if (autoChooseDD.checked == true){
+
+      // Create a boolean array with one true
+      let arr = new Array(30).fill(false);
+      let randomIndex = Math.floor(Math.random() * arr.length);
+      arr[randomIndex] = true;
+      singleDDs = arr
+
+
+      // Create a boolean array with two true
+      let arr2 = new Array(30).fill(false);
+      let randomIndex1 = Math.floor(Math.random() * arr2.length);
+      let randomIndex2 = randomIndex1;
+      while (randomIndex2 === randomIndex1) {
+        randomIndex2 = Math.floor(Math.random() * arr2.length);
+      }
+      arr2[randomIndex1] = true;
+      arr2[randomIndex2] = true;
+      doubleDDs = arr2
+    }
+
+    var allRounds = []
+    if (single_round.style.display != "none"){allRounds.push("single")}
+    if (double_round.style.display != "none"){allRounds.push("double")}
+
+    for (var r in allRounds) {
+      var thisRound = allRounds[r]
+      board[thisRound] = [{"questions":[{},{},{},{},{}]},{"questions":[{},{},{},{},{}]},{"questions":[{},{},{},{},{}]},{"questions":[{},{},{},{},{}]},{"questions":[{},{},{},{},{}]},{"questions":[{},{},{},{},{}]}]
+      for (var i = 0; i < 6; i++) {
+        board[thisRound][i]["category"] = eval((thisRound + "Categories"))[i]
+        for (var z = 0; z < 5; z++) {
+          board[thisRound][i]["questions"][z]["question"] = eval((thisRound + "Clues"))[z*6+i]
+          board[thisRound][i]["questions"][z]["answer"] = eval((thisRound + "Answers"))[z*6+i]
+          board[thisRound][i]["questions"][z]["doubleDare"] = eval((thisRound + "DDs"))[z*6+i]
+        }
+      }
+    }
+
+    if (final_round.style.display != "none"){
+    board["final"] = {}
+    board["final"]["category"] = document.getElementById("final_round").querySelector(".category textarea").value
+    board["final"]["question"] = document.getElementById("final_round").querySelector(".clue textarea").value
+    board["final"]["answer"] = document.getElementById("final_round").querySelector(".clue input").value
+    }
+
+    if (checkIfValid && !validBoard(board)) return
+    if (checkIfValid) {
+        restartGame.style.display='block'
+        d = new Date();
+        downloadFile("board" + "-" + d + ".json",JSON.stringify(board));
+    
+    }
+
+    return board
+}
+
+function imoprtJsonNow(boardString, checkIfValid=true){
+    try {
+    var board = JSON.parse(boardString)
+  } catch (error) {
+    alert("Not valid JSON. Remember that no JavaScript is allowed. Please use, https://jsonlint.com/ to debug.")
+    return
+  }
+    if (checkIfValid && !validBoard(board)) return
+
+    if (checkIfValid) {restartGame2.style.display = "none"}
+    if (board["single"]){
+    includeSingle.checked = true
+single_round.style.display = "block"
+    } else {
+        includeSingle.checked = false
+single_round.style.display = "none"
+    }
+
+    if (board["double"]){
+    includeDouble.checked = true
+    double_round.style.display = "block"
+    } else {
+        includeDouble.checked = false
+double_round.style.display = "none"
+    }
+
+    if (board["final"]){
+        includeFinal.checked = true
+final_round.style.display = "block"
+    } else {
+        includeFinal.checked = false
+final_round.style.display = "none"
+    }
+
+
+
+    if (board["single"]){
+      var singleDDs = Array.from(document.getElementById("single_round").querySelectorAll("input[type=checkbox]"))
+      var singleAnswers = Array.from(document.getElementById("single_round").querySelectorAll("input[type=text]"))
+      var singleClues = Array.from(document.getElementById("single_round").querySelectorAll(".clue textarea"))
+      var singleCategories = Array.from(document.getElementById("single_round").querySelectorAll(".category textarea"))
+    }
+    if (board["double"]){
+      var doubleDDs = Array.from(document.getElementById("double_round").querySelectorAll("input[type=checkbox]"))
+      var doubleAnswers = Array.from(document.getElementById("double_round").querySelectorAll("input[type=text]"))
+      var doubleClues = Array.from(document.getElementById("double_round").querySelectorAll(".clue textarea"))
+      var doubleCategories = Array.from(document.getElementById("double_round").querySelectorAll(".category textarea"))
+    }
+
+    var allRounds = []
+    if (board["single"]){allRounds.push("single")}
+    if (board["double"]){allRounds.push("double")}
+
+    
+    for (var r in allRounds) {
+      var thisRound = allRounds[r]
+      for (var i = 0; i < 6; i++) {
+        eval((thisRound + "Categories"))[i].value = board[thisRound][i]["category"]
+        for (var z = 0; z < 5; z++) {
+            eval((thisRound + "Clues"))[z*6+i].value = board[thisRound][i]["questions"][z]["question"]
+            eval((thisRound + "Answers"))[z*6+i].value = board[thisRound][i]["questions"][z]["answer"]
+            eval((thisRound + "DDs"))[z*6+i].checked = board[thisRound][i]["questions"][z]["doubleDare"] 
+        }
+      }
+    }
+    if (board["final"]){
+    document.getElementById("final_round").querySelector(".category textarea").value = board["final"]["category"]
+    document.getElementById("final_round").querySelector(".clue textarea").value = board["final"]["question"]
+    document.getElementById("final_round").querySelector(".clue input[type=text]").value = board["final"]["answer"] 
+    }
+console.log("done")
+    return "done"
+}
+
+// This remembers the last board in case user had an unexpected computer crash
+if (localStorage.getItem('board'))
+imoprtJsonNow(localStorage.getItem('board'), checkIfValid=false)
+
+function validBoard(board){
+    // Check that the number of rounds is 3
+    var totalRounds = 0
+    for (var x in board) totalRounds += 1
+
+    if (totalRounds == 0) {alert("JSON does not have at least one round."); return}
+
+    var singleRoundDailyDoubleCount = 0
+    var doubleRoundDailyDoubleCount = 0
+    
+    var allRounds = []
+    if (board["single"]){allRounds.push("single")}
+    if (board["double"]){allRounds.push("double")}
+
+
+    for (var r in allRounds) {
+      var thisRound = allRounds[r]
+      if (!board[thisRound]) {alert(`The ${thisRound} round is empty or does not exist. Uncheck ${thisRound} on the top if you don't plan to use it.`); return}
+      if (board[thisRound].length != 6) {alert(`The ${thisRound} round does not have 6 categories.`); return}
+      for (var i = 0; i < 6; i++) {
+        if (!board[thisRound][i]) { alert("json[" + thisRound + "][" + i + "] does not exist"); return }
+        if (!board[thisRound][i]["category"] || board[thisRound][i]["category"].length > 50) { alert(`${thisRound} round / Category ${i+1} does not exist or exceeds 50 characters.`); return }
+        if (!board[thisRound][i]["questions"] || board[thisRound][i]["questions"].length > 5) { alert(`${thisRound} round / Category ${i+1} does not exist or does not have exactly 5 questions.`); return }
+        for (var z = 0; z < 5; z++) {
+          if (!board[thisRound][i]["questions"][z]) { alert("json[" + thisRound + "][" + i + "]['questions'][" + z + "] does not exist"); return }
+          if (!board[thisRound][i]["questions"][z]["question"] || board[thisRound][i]["questions"][z]["question"].length > 200) { alert(`${thisRound} round / Category ${i+1} (${board[thisRound][i]["category"]}) / Question ${z+1} does not exist or exceeds 200 characters.`); return }
+          if (!board[thisRound][i]["questions"][z]["answer"] || board[thisRound][i]["questions"][z]["answer"].length > 100) { alert(`${thisRound} round / Category ${i+1} (${board[thisRound][i]["category"]}) / Answer ${z+1} does not exist or exceeds 100 characters.`); return }
+          if (board[thisRound][i]["questions"][z]["doubleDare"]) { 
+            if (thisRound == "single") singleRoundDailyDoubleCount += 1
+            if (thisRound == "double") doubleRoundDailyDoubleCount += 1
+          }
+        }
+      }
+    }
+    if (board["single"]){
+    if (singleRoundDailyDoubleCount != 1) { alert("There should be only one double dare in the Single Round. There are currently " + singleRoundDailyDoubleCount); return }
+    }
+    if (board["double"]){
+    if (doubleRoundDailyDoubleCount != 2) { alert("There should be two double dares (DD) in the Double Round checked. There are currently " + doubleRoundDailyDoubleCount + " checked"); return }
+    }
+
+    if (board["final"]){
+    if (!board["final"]["category"] || board["final"]["category"].length > 50) { alert("The final round's category does not exist or exceeds 50 characters."); return }
+    if (!board["final"]["question"] || board["final"]["question"].length > 200) { alert("The final round's question does not exist or exceeds 200 characters."); return }
+    if (!board["final"]["answer"] || board["final"]["answer"].length > 100) { alert("The final round's answer does not exist or exceeds 100 characters."); return }
+    }
+    return true
+}
+
+function importJArchiveNow(htmlStr){
+    const parser = new DOMParser();
+const jHTML = parser.parseFromString(htmlStr, "text/html");
+
+includeSingle.checked = true
+single_round.style.display = "block"
+includeDouble.checked = true
+double_round.style.display = "block"
+includeFinal.checked = true
+final_round.style.display = "block"
+
+
+    var singleClues = Array.from(jHTML.getElementById("jeopardy_round").querySelectorAll(".clue")).map(x => doit(x))
+    var doubleClues = Array.from(jHTML.getElementById("double_jeopardy_round").querySelectorAll(".clue")).map(x => doit(x))
+    var singleAnswers = Array.from(jHTML.getElementById("jeopardy_round").querySelectorAll(".clue")).map(x => doit2(x))
+    var doubleAnswers = Array.from(jHTML.getElementById("double_jeopardy_round").querySelectorAll(".clue")).map(x => doit2(x))
+    var singleCategories = Array.from(jHTML.getElementById("jeopardy_round").querySelectorAll(".category_name")).map(x => x.innerText)
+    var doubleCategories = Array.from(jHTML.getElementById("double_jeopardy_round").querySelectorAll(".category_name")).map(x => x.innerText)
+    console.log(singleClues, doubleClues, singleAnswers, doubleAnswers, singleCategories, doubleCategories)
+
+    var JsingleDDs = Array.from(document.getElementById("single_round").querySelectorAll(".clue input[type=checkbox]"))
+    var JsingleAnswers = Array.from(document.getElementById("single_round").querySelectorAll(".clue input[type=text]"))
+    var JsingleClues = Array.from(document.getElementById("single_round").querySelectorAll(".clue textarea"))
+    var JsingleCategories = Array.from(document.getElementById("single_round").querySelectorAll(".category textarea"))
+    var JdoubleDDs = Array.from(document.getElementById("double_round").querySelectorAll(".clue input[type=checkbox]"))
+    var JdoubleAnswers = Array.from(document.getElementById("double_round").querySelectorAll(".clue input[type=text]"))
+    var JdoubleClues = Array.from(document.getElementById("double_round").querySelectorAll(".clue textarea"))
+    var JdoubleCategories = Array.from(document.getElementById("double_round").querySelectorAll(".category textarea"))
+
+
+    function doit(x){
+        if (x.querySelector(".clue_text")) {
+            return x.querySelector(".clue_text").innerText
+        } 
+        return ""
+    }
+
+    function doit2(x){
+        // console.log(x); 
+        if(x.querySelector(".correct_response")) {
+            // console.log(parser.parseFromString(x.querySelector("div").getAttribute("onmouseover"), "text/html"))
+            return x.querySelector(".correct_response").innerText;
+        } 
+        return ""
+    }
+
+    allRounds = ["single", "double"]
+    for (var r in allRounds) {
+      var thisRound = allRounds[r]
+      for (var i = 0; i < 6; i++) {
+        eval(("J" + thisRound + "Categories"))[i].value = eval((thisRound + "Categories"))[i]
+        for (var z = 0; z < 5; z++) {
+            eval(("J" + thisRound + "Clues"))[z*6+i].value = eval((thisRound + "Clues"))[z*6+i]
+            eval(("J" + thisRound + "Answers"))[z*6+i].value = eval((thisRound + "Answers"))[z*6+i]
+        }
+      }
+    }
+    document.getElementById("final_round").querySelector(".category textarea").value = jHTML.getElementById("final_jeopardy_round").querySelector(".category_name").innerText
+    document.getElementById("final_round").querySelector(".clue textarea").value = jHTML.getElementById("final_jeopardy_round").querySelector(".clue_text").innerText
+    document.getElementById("final_round").querySelector(".clue input[type=text]").value = jHTML.getElementById("final_jeopardy_round").querySelector(".correct_response").innerText
+console.log("done")
+    return "done"
+
+
+
+
+
+
+
+
+};
+
+function dragStartAnimation(){
+  Array.from(document.querySelectorAll(".clue textarea")).map(x => x.style.backgroundColor = "#007199")
+}
+
+function dragEndAnimation(){
+  Array.from(document.querySelectorAll(".clue textarea")).map(x => x.style.backgroundColor = "#000099")
+}
+
+// function expandAnswerField(){
+//   if (this.value.length > 25){
+//     this.style.height = "41.5px"
+//   } else {
+//     this.style.height = "21.5px"
+//   }
+// }
+
+// Array.from(document.querySelectorAll(".clue input[type=text]")).map(x => x.addEventListener("keydown", expandAnswerField))
+
+
+function setClueIds(){
+
+    var Clues = document.querySelectorAll("td.clue")
+var clueNum = 0
+for (let i = 0; i < Clues.length; i++){
+    Clues[i].id = String(clueNum)
+    clueNum += 1
+}
+}
+
+setClueIds()
+
+
+
+// START Drag Operations https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations
+for(let i = 0; i < 60; i++){
+document.getElementById(String(i)).addEventListener("drop", event => {
+  onDrop(event, i)
+  
+});
+
+
+document.getElementById(String(i)).addEventListener("dragover", event => {
+    event.preventDefault();
+});
+
+document.getElementById(String(i)).addEventListener("mouseout", event => {
+    document.getElementById(String(i)).querySelectorAll("img").forEach(x => x.style.display = "none")
+});
+
+document.getElementById(String(i)).addEventListener("mouseover", event => {
+    document.getElementById(String(i)).querySelectorAll("img").forEach(x => x.style.display = "inline")
+
+});
+
+
+// https://web.dev/drag-and-drop/#add-additional-visual-cues-with-dragenter-dragover-and-dragleave
+document.getElementById(String(i)).addEventListener("dragenter", event => {
+// Intentionally left empty
+
+});
+
+document.getElementById(String(i)).addEventListener("dragleave", event => {
+// Intentionally left empty
+
+});
+
+
+
+}
+
+// END Drag Operations https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations
+
+
+
+      // By default all of these DD checks are removed
+      Array.from(document.querySelectorAll(".clue [type=checkbox], .clue label")).map(x => x.style.display = "none")
+      Array.from(document.querySelectorAll(".category textarea")).map(x => x.placeholder = "Category")
+      Array.from(document.querySelectorAll(".clue textarea")).map(x => x.placeholder = "Clue")
+      Array.from(document.querySelectorAll(".clue input[type=text]")).map(x => x.placeholder = "Answer")
+        </script>
+    </div>
+
+</body>
+
+</html>

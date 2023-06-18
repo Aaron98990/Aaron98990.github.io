@@ -144,6 +144,18 @@ color: wheat;
 
 }
 
+.dark-mode img {
+	background: white;
+}
+
+.dark-mode .tile:hover {
+	animation: none;
+}
+
+.dark-mode .tile {
+	box-shadow: 0 0 5px rgb(196 27 27 / 91%);
+}
+
 @media screen and (min-width: 1050px) {
   .one-line {
   	display: flex;
@@ -290,4 +302,8 @@ body {
     .tile-body{
         padding: 0 0
     }
+
+		.dark-mode .tile {
+			box-shadow: none;
+		}
 }

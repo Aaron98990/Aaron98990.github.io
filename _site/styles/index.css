@@ -15,7 +15,6 @@
     width: 100%;
     justify-content: center;
     border-radius: 15px;
-    height: min-content;
 }
 
 .one-line{
@@ -25,10 +24,10 @@
     margin: 0 auto;
     width: 100%;
     flex-wrap: nowrap;
-    padding-top: 10px;
 }
 
 .tile {
+    background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -51,7 +50,7 @@
 }
 
 button {
-    background-color: #1a4e99;
+    background-color: #0d6efd;
     border: none;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -138,61 +137,32 @@ img:hover {
 .tech {
     padding: 0px 5px
 }
-.dark-mode {
-background-color:black;
-color: wheat;
 
-}
-
-@media screen and (min-width: 1050px) {
-  .one-line {
-  	display: flex;
-  	flex-direction: column;
-  	width: 200px;
-	}
-	#pictures {
-		width:min-content;
-	}
+@media screen and (min-width: 950px) {
     #first-image {
         display: inline;
-        width: 200px;
     }
     #second-image {
         display: inline;
-        width: 200px;
     }
     #third-image {
-        display: none;
-        width: 200px;
+        display: inline;
     }
     body {
-    	display: flex;
-    	flex-direction: row;
-        width: 1050px;
+        width: 850px;
         margin: auto;
     }
-		h1 {
-			font-size: 3rem;
-			font-family: Verdana,Helvetica, Garamond,  Arial;
-			width: 200px;
-			line-height: 2.7rem;
-			margin: 0;
-			margin-bottom: 15px;
-		}
 }
 
-@media screen and (min-width: 630px) and (max-width: 1049px){
+@media screen and (min-width: 630px) and (max-width: 949px){
     #first-image {
         display: inline;
-        width:150px;
     }
     #second-image {
         display: inline;
-        width:150px;
     }
     #third-image {
         display: none;
-        width:150px;
     }
     .description {
         font-size: 14px !important;
@@ -207,9 +177,6 @@ color: wheat;
     h2 {
         font-size: 18px;
     }
-    h1 {
-margin: 0
-		}
 
     .spacer {
         padding: 5px 5px;
@@ -239,14 +206,9 @@ body {
 @media screen and (max-width: 629px) {
     #first-image {
         display: inline;
-        width: 150px;
     }
-    h1 {
-    	margin: 0
-		}
     #second-image {
         display: none;
-        width:150px;
     }
     #third-image {
         display: none;

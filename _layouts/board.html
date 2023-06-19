@@ -2,7 +2,7 @@
 
 <head>
     <title>Edit Board</title>
-    <link type="text/css" rel="styleSheet" href="board.css">
+    <link type="text/css" rel="styleSheet" href="/styles/board.css">
     <style>
 
 @media print {
@@ -261,8 +261,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -271,8 +271,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -281,8 +281,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -291,8 +291,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -301,8 +301,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -311,70 +311,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -385,8 +323,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -395,8 +333,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -405,8 +343,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -415,8 +353,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -425,8 +363,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -435,70 +373,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -509,8 +385,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -519,8 +395,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -529,8 +405,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -539,8 +415,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -549,8 +425,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -559,8 +435,132 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -617,8 +617,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -627,8 +627,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -637,8 +637,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -647,8 +647,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -657,8 +657,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -667,70 +667,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -741,8 +679,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -751,8 +689,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -761,8 +699,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -771,8 +709,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -781,8 +719,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -791,70 +729,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
-                          </div>
-                            <input type="text" placeholder="Answer">
-                        </td>
-                        <td class="clue">
-                            <input type="checkbox">
-                            <label for="correction_clue_daily_double">DD?</label>
-                                                        <div style="position: relative;">
-                            <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -865,8 +741,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -875,8 +751,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -885,8 +761,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -895,8 +771,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -905,8 +781,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -915,8 +791,132 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                             <label for="correction_clue_daily_double">DD?</label>
                                                         <div style="position: relative;">
                             <textarea></textarea>
-                            <image src="arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
-                            <image src="trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
+                          </div>
+                            <input type="text" placeholder="Answer">
+                        </td>
+                        <td class="clue">
+                            <input type="checkbox">
+                            <label for="correction_clue_daily_double">DD?</label>
+                                                        <div style="position: relative;">
+                            <textarea></textarea>
+                            <image src="/assets/board/arrows.svg" title="Drag & Drop Clue" draggable="true" ondragend="dragEndAnimation();saveBackUp()" class="move_icon" ondragstart="dragStartAnimation();event.dataTransfer.setData('text/plain', getClueIdByEl(this))"></image>
+                            <image src="/assets/board/trash.svg" title="Delete Clue" class="trash_icon" onclick="deleteClue(this)"></image>
                           </div>
                             <input type="text" placeholder="Answer">
                         </td>
@@ -958,7 +958,7 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
         <div id="restartGame2" style="display:none;"><h2>Import JSON</h2>
             <p>Paste the text from the .JSON file below. The .JSON file is created by using the EXPORT JSON button.</p>
              
-            <p>Click <a style="color:rgb(124, 249, 132)" target=”_blank” href="../examples/default.json">here</a> for a sample JSON import.</p>
+            <p>Click <a style="color:rgb(124, 249, 132)" target=”_blank” href="/assets/board/default.json">here</a> for a sample JSON import.</p>
             
             <textarea name="" id="importText" style="width:100%"></textarea>
             <br><br>
@@ -980,8 +980,8 @@ localStorage.setItem('board', JSON.stringify(createJson(false)));
                 Right click the board then click "View Page Source" in Google Chrome.</p>
               <p>Then completely copy all text (Command + A or Ctrl + A) then paste in the field below.</p>
               <div style="text-align: center;">
-                  <img src="ja.png" width="200">
-                <img src="ja2.png" width="200">
+                  <img src="/assets/board/ja.png" width="200">
+                <img src="/assets/board/ja2.png" width="200">
               </div>
               
               <br>

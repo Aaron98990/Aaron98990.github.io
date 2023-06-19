@@ -1,0 +1,358 @@
+{
+    "single": [
+      {
+        "category": "'S'ummer 'S'weets",
+        "questions": [
+          {
+            "question": "non-blended ice cream with fruits, nuts, and syrup, usually eaten with a spoon, and also a day of the week",
+            "answer": "Sundae"
+          }
+          ,
+          {
+            "question": "blended ice cream with fruits or oreos, often found at fast food establishments",
+            "answer": "Shake"
+          },
+          {
+            "question": "chooped ice with flavored syrup",
+            "answer": "Shaved ice or snow cone or slushie or snow ball (New Orleans variant)"
+          },
+          {
+            "question": "a drink made by puréeing fruit and vegetables in a blender, one establishment says its the king of this",
+            "answer": "Smoothie"
+          },
+          {
+            "question": "7/11 bought the naming rights to ICEE and rebranded ICEE's frozen beverages to this",
+            "answer": "slurpee"
+          }
+        ]
+      },
+  
+      {
+        "category": "6 Letter European Capitols",
+        "questions": [
+          {
+            "question": "The capitol of the United Kingdom.",
+            "answer": "London"
+          }
+          ,
+          {
+            "question": "Capitol of the country where Angela Merkel served as the chancellor from 2005 to 2021",
+            "answer": "Berlin"
+          },
+          {
+            "question": "Capitol of the only European country whose offical language is Spanish - the Castilian version",
+            "answer": "Madrid"
+          },
+          {
+            "question": "This is the capitol of Portugal",
+            "answer": "Lisbon"
+          },
+          {
+            "question": "This is the oldest European capital city, predating other modern European capitals by centuries.",
+            "answer": "Athens"
+          }
+        ]
+      },
+  
+      {
+        "category": "Pop Culture",
+        "questions": [
+          {
+            "question": "Beyonce has more than 260 million followers on this photo-sharing app whose logo looks like a Polaroid camera",
+            "answer": "Instagram"
+          }
+          ,
+          {
+            "question": "Twenty One Pilots 'wish we could turn back time to the good old days... but now we're' this title",
+            "answer": "Stressed Out"
+          },
+          {
+            "question": "Silent creepers blow things up in this Mojang game",
+            "answer": "Minecraft"
+          },
+          {
+            "question": "This popular South Korean boy band broke up in 2022.",
+            "answer": "BTS"
+          },
+          {
+            "question": "EDM, which stands for this, is intended for dancing to in parties.",
+            "answer": "Electric Dance Music"
+          }
+        ]
+      },
+      {
+        "category": "Words and Phrases",
+        "questions": [
+          {
+            "question": "It's the term for the number written below the line in a fraction; you may have heard of the 'lowest common' one",
+            "answer": "denominator"
+          }
+          ,
+          {
+            "question": "the edge or boundary of something, esspecially countries",
+            "answer": "border"
+          },
+          {
+            "question": "This phraise means to give or `spill` away a secret",
+            "answer": "spill the beans",
+            "doubleDare": true
+          },
+          {
+            "question": "This phrase is to destroy or `burn` relationships",
+            "answer": "burn bridges "
+          },
+          {
+            "question": "This phrase is to do something poorly in order to `cut` the amount of time or money",
+            "answer": "cutting corners"
+          }
+        ]
+      },
+  
+      {
+        "category": "3-Letter initialisms",
+        "questions": [
+          {
+            "question": "This is the United States currency",
+            "answer": "USD (United States Dollar)"
+          },
+          {
+            "question": "The emoji, with a hand on each cheek, is commonly used in place of this exclamation of astonishment or surprise",
+            "answer": "OMG (oh my god)"
+          },
+          {
+            "question": "This is used when someone leaves their computer, esspeically during a video game where their character will stay still",
+            "answer": "AFK (Away From Keyboard)"
+          },
+          {
+            "question": "This is often posted online to announce that you’re looking for something to do and to encourage others to reach out to you.",
+            "answer": "HMU (Hit Me Up)"
+          },
+          {
+            "question": "On YouTube, there are many video tutorials to do this including home decor, crafting, and cooking without a professional.",
+            "answer": "DIY (Do It Yourself)"
+          }
+        ]
+      },
+      {
+        "category": "Sports",
+        "questions": [
+          {
+            "question": "This runner is the world record holder in the 100 and 200 meters sprint.",
+            "answer": "Usain Bolt"
+          },
+          {
+            "question": "This tennis player has the most grand slame titles won by a women",
+            "answer": "Serena Williams"
+          },
+          {
+            "question": "a player gets this when they earn 10+ in two categories in a basketball game: points, rebounds, assists, steals, or blocked shots.",
+            "answer": "Double Double"
+          }
+          ,
+          {
+            "question": "This premier leauge system of sending the 3 bottom-finishers to a 2nd tier leauge is like sending 3 mlb teams down to AAA",
+            "answer": "relegation"
+          },
+          {
+            "question": "this is a pre-snap line of scrimmage penalty in football; soccer's version is more complex",
+            "answer": "offside"
+          }
+        ]
+      }
+    ],
+    "double": [
+      {
+        "category": "Career Day",
+        "questions": [
+          {
+            "answer": "pediatrician",
+            "question": "This doctor specializes in children & their diseases"
+  
+          },
+          {
+            "answer": "teller",
+            "question": "Not the automated kind but the human kind, it's a clerk at a bank window"
+  
+          },
+          {
+            "answer": "risk",
+            "question": "An actuary deals with this hazardous possibility, also the name of a world-conquering Hasbro game"
+  
+          },
+          {
+            "answer": "surveyor",
+            "question": "Despite the name, those in this job don't go door-to-door asking questions; they ascertain property boundaries"
+  
+          },
+          {
+            "answer": "genealogist",
+            "question": "someone who researches family history"
+  
+          }
+        ]
+      },
+  
+      {
+        "category": "Short & Tweet",
+        "questions": [
+          {
+            "answer": "LeBron James",
+            "question": "@KingJames"
+  
+          },
+          {
+            "answer": "Alexandria Ocasio-Cortez",
+            "question": "@AOC"
+  
+          },
+          {
+            "answer": "Jennifer Lopez",
+            "question": "@JLo (a former TV show judge)’"
+  
+          },
+          {
+            "answer": "President of the United States (or the name of current preseident)",
+            "question": "@POTUS"
+  
+          },
+          {
+            "answer": "Pope Frances",
+            "question": "@Pontifex (this religious figure)"
+  
+          }
+        ]
+  
+      },
+      {
+        "category": "Space-Out Business",
+        "questions": [
+          {
+            "answer": "Sirius",
+            "question": "This brightest star in the night sky. Also, this company provides satellite radio and online radio."
+  
+          },
+          {
+            "answer": "Milky Way",
+            "question": "This bar from Mars, Inc. has caramel, chocolate & nougat and is also a galaxy."
+  
+          },
+          {
+            "answer": "Asteroids",
+            "question": "These slow, floating objects were the bane of the triangle-shaped ship's existence in this 1979 Atari video game (and dinasours, too)."
+  
+          },
+          {
+            "question": "This cleaning product kills germs in the bathroom. Also, this space object is famous for its tail.",
+            "answer": "Comet"
+  
+          },
+          {
+            "answer": "Nova",
+            "question": "Chevrolet created & PBS have made very different versions of things called this. In space, this is an event where a new star appears."
+  
+          }
+        ]
+  
+      },
+      {
+        "category": "The Reality of TV",
+        "questions": [
+          {
+            "answer": "Survivor",
+            "question": "this show places a group of strangers in an isolated location, where they must provide food, fire, and shelter for themselves"
+  
+          },
+          {
+            "answer": "The Bachelor",
+            "question": "this show revolves around a single male who is to select a wife from a group of females"
+  
+          },
+          {
+            "answer": "Big Brother",
+            "question": "in this show houseguests live together in a house that is isolated from the outside world"
+  
+          },
+          {
+            "answer": "Keeping Up with the Kardashians, The Kardashians...",
+            "question": "In this show, arguments over work ethics, furniture, clothing, and relationship between sisters make for entertaining TV.",
+            "doubleDare": true
+  
+          },
+          {
+            "answer": "The Amazing Race",
+            "question": "in this show teams of two race around the world"
+  
+          }
+        ]
+      },
+      {
+        "category": "My Body",
+        "questions": [
+          {
+            "answer": "hiccups",
+            "question": "Eating quickly can cause these diaphragm spasms - drinking water helps stop these"
+  
+          },
+          {
+            "answer": "nicotine",
+            "question": "This addictive and dangerous drug produces the effects in the brain that people look for from tobacco products"
+  
+          },
+          {
+            "answer": "wisdom teeth (or third molars)",
+            "question": "Thses teeth come in when you are older, around ages 17 to 21"
+  
+          },
+          {
+            "answer": "ovaries",
+            "question": "It's the more common name for the female gonads that produce and store their eggs",
+            "doubleDare": true
+          },
+          {
+            "answer": "Brain",
+            "question": "The nervous system of the body is like a network that relays messages to different parts of the body based on this complex organ"
+  
+          }
+  
+        ]
+  
+      },
+      {
+        "category": "Parts of Speech",
+        "questions": [
+          {
+            "answer": "adjective",
+            "question": "Does my posterior look big in these pants?: big "
+  
+          },
+          {
+            "answer": "pronouns",
+            "question": "What...? Who? Her!: All of the above "
+  
+          },
+          {
+            "answer": "preposition",
+            "question": "To quote Britney, 'So if I said I want your body now, would you hold it against me?': against "
+  
+          },
+          {
+            "answer": "interjection/exclamation",
+            "question": "Ahoy! Surrender your vessel or be boarded by Pirate Pete!: ahoy "
+  
+          },
+          {
+            "answer": "adverb",
+            "question": "Here's a very, very, very good clue from the writer: Very "
+  
+          }
+        ]
+  
+      }
+    ],
+    "final": {
+      "category": "Literary Characters On Screen",
+      "question": "Per Guinness, this detective who debuted in 1887 is the most portrayed human literary character in film & television",
+      "answer": "Sherlock Holmes"
+  
+    }
+  }

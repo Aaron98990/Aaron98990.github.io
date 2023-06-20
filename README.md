@@ -24,6 +24,8 @@ Once you've found a home for your forked repository, **[clone it](https://help.g
 
 #### Install Jekyll
 
+** Use must be using Ruby 2 **
+
 Jekyll is a [Ruby Gem](https://jekyllrb.com/docs/ruby-101/#gems) that can be installed on most systems.
 
 1. Install a full [Ruby development environment](https://jekyllrb.com/docs/installation/)

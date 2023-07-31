@@ -69,13 +69,26 @@ button:hover {
 
 @keyframes border-hover {
     0% {
-        background-color: white;
+        background-color: inherit;
     }
     50% {
         background-color: rgb(236, 239, 242);
     }
     100% {
-         background-color: white;
+         background-color: inherit;
+    }
+}
+
+
+@keyframes dark-mode-hover {
+    0% {
+        background-color: inherit;
+    }
+    50% {
+        background-color: #343949;
+    }
+    100% {
+         background-color: inherit;
     }
 }
 
@@ -144,12 +157,18 @@ color: wheat;
 
 }
 
+.dark-mode button {
+color: white;
+}
+
 .dark-mode img {
 	background: white;
 }
 
 .dark-mode .tile:hover {
-	animation: none;
+	animation: dark-mode-hover;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
 }
 
 .dark-mode .tile {
@@ -172,6 +191,7 @@ color: wheat;
     #second-image {
         display: inline;
         width: 200px;
+        height: 200px;
     }
     #third-image {
         display: none;
@@ -201,6 +221,7 @@ color: wheat;
     #second-image {
         display: inline;
         width:150px;
+        height: 150px;
     }
     #third-image {
         display: none;
@@ -307,3 +328,4 @@ body {
 			box-shadow: none;
 		}
 }
+

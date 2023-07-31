@@ -26,9 +26,8 @@
     Trinity Universiy CS 2021<br>
     
     <div style="text-align:center; padding-top: 3px;">
-    <img src="/assets/github.png" onclick="window.open('https://www.github.com/Aaron98990','blank')" alt="My GitHub" style="width:30px;border-radius: 20px;cursor: pointer;">
-<img src="/assets/linkedin.png" alt="My LinkedIn" onclick="window.open('https://www.linkedin.com/in/feleke','blank')" style="width:30px;border-radius: 10px;cursor: pointer;">
-
+    <img src="/assets/github.png" onclick="window.location.href='https://www.github.com/Aaron98990'" alt="My GitHub" style="width:30px;border-radius: 20px;cursor: pointer;">
+<img src="/assets/linkedin.png" alt="My LinkedIn" onclick="window.location.href='https://www.linkedin.com/in/feleke'" style="width:30px;border-radius: 10px;cursor: pointer;">
 </div>
     </div>
     <div id="pictures" style="right:0px;">
@@ -43,82 +42,83 @@
 </div>
 <div class="flex-container">
     <div class="spacer">
-    <div class="tile animate__animated animate__fadeInDown" onmouseover="imageChange('game.jpg');">
-        <div class="tile-body" >
+    <div class="tile class="animate__animated animate__fadeInDown"">
+        <div class="tile-body">
 <h2 class="header">Tip Of the Tounge</h2>
 <div class="icon"></div>
+<img src="../assets/game.jpg" style="width=100%"></img>
 <div class="description">Play Jeopardy, remotely! Three individuals compete in this game with a buzzer & scoring system! (Contact me to turn on server)</div>
-<button onclick="window.open('http://buzzin.feleke.xyz/','blank')">Website</button>
+<button onclick="window.location.href='http://www.buzzin.feleke.xyz/'">Website</button>
 </div>
 </div>
 </div>
 
 <div class="spacer">
-<div class="tile" onmouseover="imageChange('wii.png')">
+<div class="tile">
     <div class="tile-body">
     <h2 class="header">Wii Inspect</h2>
     <div class="icon"></div>
     <div class="description">Decode memories from the binary file to find high scrores, stamps, and recent plays from Wii Sports Resport!</div>
-    <button onclick="window.open('https://github.com/Aaron98990/wii-inspect','blank')">GitHub</button>
+    <button onclick="window.location.href='https://github.com/Aaron98990/wii-inspect'">GitHub</button>
 </div>
 </div>
 </div>
 
 <div class="spacer">
-<div class="tile" onmouseover="imageChange('ejection-reason.png')">
+<div class="tile">
     <div class="tile-body">
 
     <h2 class="header">Red Card Report</h2>
     <div class="icon"></div>
     <div class="description">For high school, soccer referees can use this website in order to a create a standardized ejection report. </div>
-    <button onclick="window.open('/ejection','_blank')">Website</button>
+    <button onclick="window.location.href=window.location.origin + '/ejection'">Website</button>
 </div>
 </div>
 </div>
 
-<div class="spacer" >
-<div class="tile" onmouseover="imageChange('wuhu-map.png')">
+<div class="spacer">
+<div class="tile">
     <div class="tile-body">
 
     <h2 class="header">Wuhu Island Map</h2>
     <div class="icon"></div>
     <div class="description">An interactive map with location information & route planning for Wuhu Islands in Wii Sports Resort.</div>
-    <button onclick="window.open('/map','blank')">Website</button>
+    <button onclick="window.location.href=window.location.origin + '/map'">Website</button>
 </div>
 </div>
 </div>
 
 <div class="spacer">
-    <div class="tile" onmouseover="imageChange('offside-line.png')">
+    <div class="tile">
         <div class="tile-body">
     
         <h2 class="header">Offside Quiz</h2>
         <div class="icon"></div>
         <div class="description">Calling offside as an assistant referee in soccer is very challenging. Are you ready for the challenge?</div>
-        <button onclick="window.open('/offside','blank')">Website</button>
+        <button onclick="window.location.href=window.location.origin + '/offside'">Website</button>
     </div>
     </div>
     </div>
 
     <div class="spacer">
-        <div class="tile" onmouseover="imageChange('edit-board.png')">
+        <div class="tile">
             <div class="tile-body">
     <h2 class="header">Jeopardy Board Editor</h2>
     <div class="icon"></div>
     <div class="description">Create, share, customize, and print your Jeopardy Board. Drag & Drop Clues.</div>
-    <button onclick="window.open('/board','blank')">Website</button>
+    <button onclick="window.location.href=window.location.origin + '/board'">Website</button>
     </div>
     </div>
     </div>
 
 <div class="spacer">
-    <div class="tile" onmouseover="imageChange('bookmarks-preview.png')" >
+    <div class="tile">
         <div class="tile-body">
 
         <h2 class="header">Bookmarks Extension</h2>
         <div class="icon"></div>
         <div class="description">No ads. No news. Just your links. 100's of them. On every new tab.</div>
-        <button onclick="window.open('/assets/bookmarks-preview.png', '_blank')";>Show Me a Preview</button>
+        <button onclick="window.location.href=window.location.origin + '/assets/bookmarks-preview.png'">Show Me a Preview</button>
     </div>
     </div>
 </div>
@@ -129,24 +129,7 @@
 
 	<script>
 var a = Math.floor(Math.random() * 2)
-var systemDarkModeActiviated = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-if (a == 1 ||  systemDarkModeActiviated){
+if (a == 1){
 document.body.classList.add('dark-mode');
-}
-
-function imageChange(loc, horizontalPercent){
-document.querySelector('#second-image').src = '../assets/' + loc;
-document.querySelector('#second-image').style.filter = "none";
-document.querySelector('#second-image').style.objectFit = "cover";
-	if (horizontalPercent){
-document.querySelector('#second-image').style.objectPosition = horizontalPercent + "% 0";
-	} else{
-document.querySelector('#second-image').style.objectPosition = "50% 0";
-	}
-}
-
-var links = document.links;
-for (var i = 0; i < links.length; i++) {
-	     links[i].target = "_blank";
 }
 	</script>

@@ -13,10 +13,10 @@ body:not(.dark-mode){
 }
 
 body{
-	background: linear-gradient(
+background: linear-gradient(
         143.6deg,
         #343949 20.79%,
-        rgb(155 0 178 / 60%) 40.92%,
+        rgb(92 0 106 / 88%) 40.92%,
         #343949 70.35%
       );
 }

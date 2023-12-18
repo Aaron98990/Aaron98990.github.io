@@ -12,6 +12,15 @@ body:not(.dark-mode){
 
 }
 
+body{
+	background: linear-gradient(
+        143.6deg,
+        #343949 20.79%,
+        rgb(155 0 178 / 60%) 40.92%,
+        #343949 70.35%
+      );
+}
+
 .tile-body {
     padding: 10px;
 }
@@ -162,7 +171,7 @@ img:hover {
     padding: 0px 5px
 }
 .dark-mode {
-background-color:black;
+/* background-color:black; */
 color: wheat;
 
 }

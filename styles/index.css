@@ -13,12 +13,7 @@ body:not(.dark-mode){
 }
 
 body{
-background: linear-gradient(
-        143.6deg,
-        #343949 20.79%,
-        rgb(92 0 106 / 88%) 40.92%,
-        #343949 70.35%
-      );
+background: linear-gradient( 143.6deg, #343949 20.79%, rgba(54, 1, 62, 0.88) 40.92%, #343949 70.35% );
 }
 
 .tile-body {
@@ -191,7 +186,7 @@ color: white;
 }
 
 .dark-mode .tile {
-	box-shadow: 0 0 5px rgb(196 27 27 / 91%);
+	box-shadow: 0 0 7px rgb(196 27 27 / 91%);
 }
 
 @media screen and (min-width: 1050px) {

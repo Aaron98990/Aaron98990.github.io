@@ -480,14 +480,14 @@ select {
       document.getElementById("subsequent-caution-form").style.display = "none";
     }
 
-    if (elem.value.toLowerCase().includes("language")){
+    if (elem.id == "ejectionOffenseForm" && elem.value.toLowerCase().includes("language")){
       abusiveLanguageArea.style.display = "block"
       abusiveLanguage.style.display = "inline"
       abusiveLanguageHelper.innerHTML = " by saying \""
       abusiveLanguageHelper2.innerHTML = "\""
       abusiveLanguageHint.innerHTML = "Exactly quote all abusive language. Write motherfucker. Not m*&!$#@ucker"
       abusiveLanguageForm.placeholder = "I hope you die on your way home, fucking bitch."
-      abusiveLanguageForm.rows = "2"
+      abusiveLanguageForm.rows = "3"
     } else if (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting")){
       abusiveLanguageArea.style.display = "block"
       abusiveLanguage.style.display = "inline"
@@ -495,7 +495,7 @@ select {
       abusiveLanguageHelper2.innerHTML = " "
       abusiveLanguageHint.innerHTML = "Factually describe the offense in one to three sentences. Use the ejected person's name. Where was the impact (face, ankle, etc.)"
       abusiveLanguageForm.placeholder = "Sarah Williams elbowed an opponent with excessive force in the face while challenging for the ball by attempting to head the ball."
-      abusiveLanguageForm.rows = "4"
+      abusiveLanguageForm.rows = "5"
     } else if (elem.id == "ejectionOffenseForm"){
       abusiveLanguageArea.style.display = "none"
       abusiveLanguage.style.display = "none"

@@ -320,7 +320,7 @@ select {
               id="ejection1YCTime"></span> <span id="ejection1YCTimeUpDown"></span> <span id="ejection1YCPeriod"></span><span
               id="ejection1YCOvertime"></span>.
             The subsequent yellow card was shown for "<span
-              id="ejection2YCOffense"></span><span id="ejection2YCUB"></span>".
+              id="ejection2YCOffense"></span><span id="ejection2YCUB"></span>". There was no further incident with the ejected participant.
           </p>
         </div>
       </div>
@@ -488,7 +488,7 @@ select {
       document.getElementById("subsequent-caution-form").style.display = "none";
     }
 
-    if (elem.value == "language towards "){
+    if (elem.value.includes("language")){
       abusiveLanguageArea.style.display = "block"
       abusiveLanguage.style.display = "inline"
       abusiveLanguageHelper.innerHTML = " by saying \""
@@ -496,7 +496,7 @@ select {
       abusiveLanguageHint.innerHTML = "Exactly quote all abusive language. Write motherfucker. Not m*&!$#@ucker"
       abusiveLanguageForm.placeholder = "I hope you die on your way home, fucking bitch."
       abusiveLanguageForm.rows = "1"
-    } else if (elem.value == "gesture towards " || elem.value == "violent conduct towards " || elem.value == "taunting towards "){
+    } else if (elem.value.includes("gesture") || elem.value == "violent conduct towards " || elem.value == "Serious Foul Play"){
       abusiveLanguageArea.style.display = "block"
       abusiveLanguage.style.display = "inline"
       abusiveLanguageHelper.innerHTML = ". "
@@ -530,7 +530,7 @@ select {
       
 
     }
-    else if (elem.id == "ejectionOffenseForm" && (ejectionOffenseForm.value == "Spitting at " || ejectionOffenseForm.value == "violent conduct towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive language towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive festure towards " )) {
+    else if (elem.id == "ejectionOffenseForm" && (ejectionOffenseForm.value == "Spitting at " || ejectionOffenseForm.value == "violent conduct towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive language towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive gesture towards " )) {
       document.getElementById("ejectionOffenseSeriousFoulPlay").style.display = "none";
       ejectionOffenseTowardsForm.style.visibility = "visible"
       ejectionOffenseSeriousFoulPlay.innerHTML = ""

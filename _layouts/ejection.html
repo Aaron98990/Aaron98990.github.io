@@ -31,11 +31,11 @@ select {
       <form id="myForm">
 
         <div style="background-color:rgb(255, 242, 242);">
-          <label for="fname">Full Name of Disqualified Participant</label><br>
+          <label for="fname">Full Name of Ejected Participant</label><br>
           <input id="ejectionNameForm" onchange=myFunction(this) onkeyup=myFunction(this) type="text" value=""
             required><br>
 
-          <label>Role of Disqualified Participant</label><br>
+          <label>Role of Ejected Participant</label><br>
           <select name="ejectionRoleForm" onchange=myFunction(this) onkeyup=myFunction(this) id="ejectionRoleForm"
             required>
             <option value="" selected disabled hidden>Select an Option</option>
@@ -45,11 +45,11 @@ select {
           </select><br>
 
           <div id="ejectionNumberArea" style="display:none">
-          <label>Jersey Number of Disqualified Player</label><br>
+          <label>Jersey Number of Ejected Player</label><br>
           <input onchange=myFunction(this) onkeyup=myFunction(this) type="number" value="" id="ejectionNumberForm"><br>
           </div>
 
-          <label>Team of the Disqualified Participant</label><br>
+          <label>Team of the Ejected Participant</label><br>
           <input id="ejectionTeamForm" onchange=myFunction(this) onkeyup=myFunction(this) type="text" value=""
             required><br>
 
@@ -130,7 +130,7 @@ select {
             <option value="near the corner flag">near the corner flag </option>
           </select><br>
 
-          <label>Period the Participant was Disqualified</label><br>
+          <label>Period the Participant was Ejected</label><br>
           <select name="ejectionPeriodForm" id="ejectionPeriodForm" onchange=myFunction(this) onkeyup=myFunction(this)
             required>
             <option value="" selected disabled hidden>Select an Option</option>
@@ -152,7 +152,7 @@ select {
             <option value="second overtime period">Second Overtime Period</option>
             <option value="between the end of the second overtime period and the start of kicks from the penalty mark">Between Second Overtime Period and Kicks from the Penalty Mark
             </option>
-            <option value="during Kicks from the Penalty Mark">Kicks from the Penalty Mark</option>
+            <option value="penalties">Penalties</option>
           </select><br>
 
           <label>The Minute of the Red Card</label><br>
@@ -231,7 +231,7 @@ select {
             <option value="second overtime period">Second Overtime Period</option>
             <option value="between the end of the second overtime period and the start of kicks from the penalty mark">Between Second Overtime Period and Kicks from the Penalty Mark
             </option>
-            <option value="during Kicks from the Penalty Mark">Kicks from the Penalty Mark</option>
+            <option value="during penalties">Penalties</option>
           </select><br>
 
           <!-- Code by Aaron Feleke -->
@@ -310,7 +310,7 @@ select {
         <div id="report">
           <p><span id="ejectionName"></span> (<span id="ejectionRole"></span><span
               id="ejectionNumberHash">#</span><span id="ejectionNumber"></span>
-            - <span id="ejectionTeam"></span>) was shown the red card and disqualified for "<span id="ejectionOffense"></span><span
+            - <span id="ejectionTeam"></span>) was shown the red card and ejected for "<span id="ejectionOffense"></span><span
               id="ejectionOffenseSeriousFoulPlay"></span><span id="ejectionOffenseTowards"></span>"<span id="abusiveLanguageHelper"></span><span id="abusiveLanguage"></span><span id="abusiveLanguageHelper2"></span>
             The offense occurred <span id="ejectionSide"></span> <span id="ejectionArea"></span> <span
               id="ejectionTime"></span> <span id="ejectionTimeUpDown"></span> <span id="ejectionPeriod"></span><span

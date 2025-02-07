@@ -139,7 +139,7 @@ select {
             <option value="first overtime period">First Overtime Period</option>
             <option value="between the end of the first overtime period and the end of the second overtime period">Between First and Second Overtime Period</option>
             <option value="second overtime period">Second Overtime Period</option>
-            <option value="between the end of the second overtime period and the start of kicks from the penalty mark">Between Second Overtime Period and Kicks from the Penalty Mark
+            <option value="between the end of the second overtime period and the start of penalties">Between Second Overtime Period and Penalties
             </option>
             <option value="penalties">Penalties</option>
           </select><br>
@@ -162,14 +162,16 @@ select {
           <select name="ejection1YCOffenseForm" id="ejection1YCOffenseForm" onchange=myFunction(this)
             onkeyup=myFunction(this)>
             <option value="" selected disabled hidden>Select an Option</option>
-            <option value="Dissent">Dissent</option>
-            <option value="Illegally">Illegally entering or leaving the field</option>
+            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
+            <option value="Dissent by word of mouth">Dissent by word of mouth</option>
+            <option value="Dissent by action">Dissent by action</option>
+            <option value="encroachment during a restart">encroachment during a restart</option>
             <option value="Persistent Infringement">Persistent Infringement</option>
             <option value="incidental use of vulgar or profane language">Incidental use of vulgar or profane language</option>
-            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
-            <option value="use of electronic communication devices with on-field players during play">Illegal use
+            <option value="Illegally entering the field">Illegally entering the field</option>
+            <option value="Illegally leaving the field">Illegally leaving the field</option>
+            <option value="use of an electronic communication device with on-field players during play">Illegal use
               of an electronic communication device</option>
-            <option value="encroachment">encroachment</option>
           </select><br>
 
           <select name="ejection1YCUBForm" id="ejection1YCUBForm" style="visibility:hidden;" onchange=myFunction(this)
@@ -192,10 +194,6 @@ select {
             <option class="UB1YC" value="DOGSO by Foul & Advantage & Goal">DOGSO by Foul & Advantage & Goal</option>
             <option class="UB1YC" value="DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick">DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick</option>
             <option class="UB1YC" value="Use of alcohol, use of tobacco, to be under the influence">Use of alcohol, use of tobacco, to be under the influence</option>
-            <option class="EnteringLeaving1YC" value=" entering the field of play">Entering</option>
-            <option class="EnteringLeaving1YC" value=" leaving the field of play">Leaving</option>
-            <option class="Dissent1YC" value=" by word of mouth">by word of mouth</option>
-            <option class="Dissent1YC" value=" by action">by action</option>
           </select><br>
 
           <label>Period of the First Yellow Card</label><br>
@@ -241,14 +239,17 @@ select {
           <select name="ejection2YCOffenseForm" id="ejection2YCOffenseForm" onchange=myFunction(this)
             onkeyup=myFunction(this)>
             <option value="" selected disabled hidden>Select an Option</option>
-            <option value="Dissent">Dissent</option>
-            <option value="Illegally">Illegally entering or leaving the field</option>
+            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
+            <option value="Dissent by word of mouth">Dissent by word of mouth</option>
+            <option value="Dissent by action">Dissent by action</option>
+            <option value="encroachment during a restart">encroachment during a restart</option>
             <option value="Persistent Infringement">Persistent Infringement</option>
             <option value="incidental use of vulgar or profane language">Incidental use of vulgar or profane language</option>
-            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
+            <option value="Illegally entering the field">Illegally entering the field</option>
+            <option value="Illegally leaving the field">Illegally leaving the field</option>
             <option value="use of an electronic communication device with on-field players during play">Illegal use
               of an electronic communication device</option>
-            <option value="encroachment">encroachment</option>
+            
           </select><br>
 
 
@@ -256,7 +257,7 @@ select {
 
           <select name="ejection2YCUBForm" id="ejection2YCUBForm" style="visibility:hidden;" onchange=myFunction(this)
             onkeyup=myFunction(this)>
-            <option class="UB2YC" class="UB1YC" value="" selected disabled hidden>Select an Option</option>
+            <option class="UB2YC" value="" selected disabled hidden>Select an Option</option>
             <option class="UB2YC" value="Reckless Play">Reckless Play</option>
             <option class="UB2YC" value="Unnecessary delay">Unnecessary Delay</option>
             <option class="UB2YC" value="Holding a shirt, shorts">Holding a shirt, shorts</option>
@@ -274,10 +275,6 @@ select {
             <option class="UB2YC" value="DOGSO by Foul & Advantage & Goal">DOGSO by Foul & Advantage & Goal</option>
             <option class="UB2YC" value="DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick">DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick</option>
             <option class="UB2YC" value="Use of alcohol, use of tobacco, to be under the influence">Use of alcohol, use of tobacco, to be under the influence</option>
-            <option class="EnteringLeaving2YC" value=" entering the field of play">Entering</option>
-            <option class="EnteringLeaving2YC" value=" leaving the field of play">Leaving</option>
-            <option class="Dissent2YC" value=" by word of mouth">by word of mouth</option>
-            <option class="Dissent2YC" value=" by action">by action</option>
           </select><br>
 
 
@@ -537,38 +534,12 @@ if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gest
       ejection2YCUBForm.style.visibility = "visible"
       ejection2YCUBForm.value = ""
 
-      // Unsporting Behavior Class Fields
-      document.querySelectorAll('.UB2YC').forEach(function (el) {
-        el.style.display = 'block';
-      });
-      // Dissent Class Fields
-      document.querySelectorAll('.Dissent2YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
-
-      // Entering/Leaving Class Fields
-      document.querySelectorAll('.EnteringLeaving2YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
-
 
     } else if (elem.id == "ejection2YCOffenseForm" && ejection2YCOffenseForm.value == "Illegally") {
       ejection2YCUB.style.visibility = "visible"
       ejection2YCUBForm.style.visibility = "visible"
       ejection2YCUBForm.value = ""
-      // Hide Unsporting Behavior Class Fields
-      document.querySelectorAll('.UB2YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
-      // Hide Dissent Class Fields
-      document.querySelectorAll('.Dissent2YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
 
-      // Show Entering/Leaving Class Fields
-      document.querySelectorAll('.EnteringLeaving2YC').forEach(function (el) {
-        el.style.display = 'block';
-      });
 
 
     }
@@ -576,20 +547,6 @@ if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gest
       ejection2YCUB.style.visibility = "visible"
       ejection2YCUBForm.style.visibility = "visible"
       ejection2YCUBForm.value = ""
-
-      // Unsporting Behavior Class Fields
-      document.querySelectorAll('.UB2YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
-      // Dissent Class Fields
-      document.querySelectorAll('.Dissent2YC').forEach(function (el) {
-        el.style.display = 'block';
-      });
-
-      // Entering/Leaving Class Fields
-      document.querySelectorAll('.EnteringLeaving2YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
 
     }
     else if (elem.id == "ejection2YCOffenseForm") {
@@ -604,38 +561,12 @@ if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gest
       ejection1YCUBForm.style.visibility = "visible"
       ejection1YCUBForm.value = ""
 
-      // Unsporting Behavior Class Fields
-      document.querySelectorAll('.UB1YC').forEach(function (el) {
-        el.style.display = 'block';
-      });
-      // Dissent Class Fields
-      document.querySelectorAll('.Dissent1YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
-
-      // Entering/Leaving Class Fields
-      document.querySelectorAll('.EnteringLeaving1YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
-
 
     } else if (elem.id == "ejection1YCOffenseForm" && ejection1YCOffenseForm.value == "Illegally") {
       ejection1YCUB.style.visibility = "visible"
       ejection1YCUBForm.style.visibility = "visible"
       ejection1YCUBForm.value = ""
-      // Hide Unsporting Behavior Class Fields
-      document.querySelectorAll('.UB1YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
-      // Hide Dissent Class Fields
-      document.querySelectorAll('.Dissent1YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
 
-      // Show Entering/Leaving Class Fields
-      document.querySelectorAll('.EnteringLeaving1YC').forEach(function (el) {
-        el.style.display = 'block';
-      });
 
 
     }
@@ -644,19 +575,6 @@ if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gest
       ejection1YCUBForm.style.visibility = "visible"
       ejection1YCUBForm.value = ""
 
-      // Unsporting Behavior Class Fields
-      document.querySelectorAll('.UB1YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
-      // Dissent Class Fields
-      document.querySelectorAll('.Dissent1YC').forEach(function (el) {
-        el.style.display = 'block';
-      });
-
-      // Entering/Leaving Class Fields
-      document.querySelectorAll('.EnteringLeaving1YC').forEach(function (el) {
-        el.style.display = 'none';
-      });
 
     }
     else if (elem.id == "ejection1YCOffenseForm") {

@@ -514,7 +514,7 @@ select {
 if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("language") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting"))) {
       ejectionOffenseTowardsForm.style.visibility = "visible"
       ejectionOffenseTowardsForm.style.display = 'block';
-      ejectionOffenseTowards.style.display = 'block'; 
+      ejectionOffenseTowards.style.display = 'inline'; 
       if (ejectionOffenseForm.value.toLowerCase().includes("serious")){
         ejectionOffenseTowardsForm.style.display = 'none';  
         document.getElementById("ejectionOffenseTowards").style.display = "none"; 

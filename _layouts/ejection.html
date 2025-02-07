@@ -78,7 +78,8 @@ select {
           <select name="ejectionOffenseTowardsForm" onchange=myFunction(this) onkeyup=myFunction(this)
           id="ejectionOffenseTowardsForm" style="visibility:hidden;" required>
           <option value="" selected disabled hidden>Select an Option</option>
-          <option value="an opponent">Towards an opponent</option>
+          <option value="a player on the opposing team">Towards a player on the opposing team</option>
+          <option value="a player on the opposing team">Towards a coach on the opposing team</option>
           <option value="a teammate">Towards a teammate</option>
           <option value="a game official">Towards a game official</option>
           <option value="a spectator">Towards a spectator</option>
@@ -300,8 +301,7 @@ select {
         <div id="report">
           <p><span id="ejectionName"></span> (<span id="ejectionRole"></span><span
               id="ejectionNumberHash">#</span><span id="ejectionNumber"></span>
-            - <span id="ejectionTeam"></span>) was shown the red card and ejected for "<span id="ejectionOffense"></span><span
-              id="ejectionOffenseSeriousFoulPlay"></span><span id="ejectionOffenseTowards"></span>"<span id="abusiveLanguageHelper"></span><span id="abusiveLanguage"></span><span id="abusiveLanguageHelper2"></span>
+            - <span id="ejectionTeam"></span>) was shown the red card and ejected for "<span id="ejectionOffense"></span></span><span id="ejectionOffenseTowards"></span>"<span id="abusiveLanguageHelper"></span><span id="abusiveLanguage"></span><span id="abusiveLanguageHelper2"></span>
             The offense occurred <span id="ejectionSide"></span> <span id="ejectionArea"></span> <span
               id="ejectionTime"></span> <span id="ejectionTimeUpDown"></span> <span id="ejectionPeriod"></span><span
               id="ejectionOvertime"></span>. There was no further incident with the ejected participant.
@@ -504,8 +504,7 @@ select {
     }
 
 
-if (elem.id == "ejectionOffenseForm" && (ejectionOffenseForm.value == "Spitting at " || ejectionOffenseForm.value == "Biting at " || ejectionOffenseForm.value == "violent conduct towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive language towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive gesture towards " )) {
-      document.getElementById("ejectionOffenseSeriousFoulPlay").style.display = "none";
+if (elem.id == "ejectionOffenseForm" && (ejectionOffenseForm.value == "Spitting at " || ejectionOffenseForm.value.toLowerCase().includes("serious") || ejectionOffenseForm.value == "Biting at " || ejectionOffenseForm.value == "violent conduct towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive language towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive gesture towards " )) {
       ejectionOffenseTowardsForm.style.visibility = "visible"
       ejectionOffenseSeriousFoulPlay.innerHTML = ""
       ejectionOffenseTowardsForm.style.display = 'block';

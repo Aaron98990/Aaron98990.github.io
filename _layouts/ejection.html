@@ -510,7 +510,7 @@ if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gest
       ejectionOffenseTowards.style.display = 'block'; 
       if (ejectionOffenseForm.value.toLowerCase().includes("serious")){
         ejectionOffenseTowardsForm.style.display = 'none';  
-        ejectionOffenseTowards.style.display = 'none'; 
+        ejectionOffenseTowards.value = ''; 
       }
     
       if (ejectionOffenseForm.value != "Spitting at " && ejectionOffenseForm.value != "Biting at "){

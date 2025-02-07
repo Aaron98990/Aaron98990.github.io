@@ -173,14 +173,14 @@ select {
           <select name="ejection1YCOffenseForm" id="ejection1YCOffenseForm" onchange=myFunction(this)
             onkeyup=myFunction(this)>
             <option value="" selected disabled hidden>Select an Option</option>
-            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
             <option value="Dissent">Dissent</option>
             <option value="Illegally">Illegally entering or leaving the field</option>
             <option value="Persistent Infringement">Persistent Infringement</option>
             <option value="incidental use of vulgar or profane language">Incidental use of vulgar or profane language</option>
+            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
             <option value="use of electronic communication devices with on-field players during play">Illegal use
               of an electronic communication device</option>
-            <option value="Use of a tobacco product">Use of a tobacco product</option>
+            <option value="encroachment">encroachment</option>
           </select><br>
 
           <select name="ejection1YCUBForm" id="ejection1YCUBForm" style="visibility:hidden;" onchange=myFunction(this)
@@ -188,10 +188,9 @@ select {
             <option class="UB1YC" class="UB1YC" value="" selected disabled hidden>Select an Option</option>
             <option class="UB1YC" value="Reckless Play">Reckless Play</option>
             <option class="UB1YC" value="Unnecessary delay">Unnecessary Delay</option>
-            <option class="UB1YC" value="Encroachment">Encroachment on a Restart</option>
             <option class="UB1YC" value="Holding a shirt, shorts">Holding a shirt, shorts</option>
-            <option class="UB1YC" value="Deliberate Handball to stop an attack">Handball to stop an attack</option>
-            <option class="UB1YC" value="Deliberate Tactical Foul">Tactical Foul</option>
+            <option class="UB1YC" value="Deliberate handling the ball to interfere with or stop a promising attack">Deliberate handling the ball to interfere with or stop a promising attack (SPA)</option>
+            <option class="UB1YC" value="Foul that interferes with or stops a promising attack">Foul that interferes with or stops a promising attack (SPA)</option>
             <option class="UB1YC" value="Coaching Outside the Team Area">Coaching Outside the Team Area</option>
             <option class="UB1YC" value="Deliberate Verbal Tactics">Deliberate Verbal Tactics</option>
             <option class="UB1YC" value="Faking an injury">Faking an injury</option>
@@ -203,6 +202,7 @@ select {
             <option class="UB1YC" value="DOGSO by Handball & Advantage & Goal">DOGSO by Handball & Advantage & Goal</option>
             <option class="UB1YC" value="DOGSO by Foul & Advantage & Goal">DOGSO by Foul & Advantage & Goal</option>
             <option class="UB1YC" value="DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick">DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick</option>
+            <option class="UB1YC" value="Use of alcohol, use of tobacco, to be under the influence">Use of alcohol, use of tobacco, to be under the influence</option>
             <option class="EnteringLeaving1YC" value=" entering the field of play">Entering</option>
             <option class="EnteringLeaving1YC" value=" leaving the field of play">Leaving</option>
             <option class="Dissent1YC" value=" by word of mouth">by word of mouth</option>
@@ -252,37 +252,39 @@ select {
           <select name="ejection2YCOffenseForm" id="ejection2YCOffenseForm" onchange=myFunction(this)
             onkeyup=myFunction(this)>
             <option value="" selected disabled hidden>Select an Option</option>
-            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
             <option value="Dissent">Dissent</option>
             <option value="Illegally">Illegally entering or leaving the field</option>
-            <option value="Persistent infringement">Persistent Infringement</option>
+            <option value="Persistent Infringement">Persistent Infringement</option>
             <option value="incidental use of vulgar or profane language">Incidental use of vulgar or profane language</option>
-            <option value="use of electronic communication devices with on-field players during play">Illegal use
+            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
+            <option value="use of an electronic communication device with on-field players during play">Illegal use
               of an electronic communication device</option>
-            <option value="Use of a tobacco product">Use of a tobacco product</option>
+            <option value="encroachment">encroachment</option>
           </select><br>
+
+
 
 
           <select name="ejection2YCUBForm" id="ejection2YCUBForm" style="visibility:hidden;" onchange=myFunction(this)
             onkeyup=myFunction(this)>
-            <option value="" selected disabled hidden>Select an Option</option>
+            <option class="UB2YC" class="UB1YC" value="" selected disabled hidden>Select an Option</option>
             <option class="UB2YC" value="Reckless Play">Reckless Play</option>
-            <option class="UB2YC" value="Unnecessary delay">Unnecessary delay</option>
-            <option class="UB2YC" value="Encroachment">Encroachment on a Restart</option>
+            <option class="UB2YC" value="Unnecessary delay">Unnecessary Delay</option>
             <option class="UB2YC" value="Holding a shirt, shorts">Holding a shirt, shorts</option>
-            <option class="UB2YC" value="Deliberate Handball to stop an attack">Handball to stop an attack</option>
-            <option class="UB2YC" value="Deliberate Tactical Foul">Tactical Foul</option>
+            <option class="UB2YC" value="Deliberate handling the ball to interfere with or stop a promising attack">Deliberate handling the ball to interfere with or stop a promising attack (SPA)</option>
+            <option class="UB2YC" value="Foul that interferes with or stops a promising attack">Foul that interferes with or stops a promising attack (SPA)</option>
             <option class="UB2YC" value="Coaching Outside the Team Area">Coaching Outside the Team Area</option>
             <option class="UB2YC" value="Deliberate Verbal Tactics">Deliberate Verbal Tactics</option>
             <option class="UB2YC" value="Faking an injury">Faking an injury</option>
             <option class="UB2YC" value="Simulating a foul">Simulating a foul</option>
             <option class="UB2YC" id="illegallyEquipped" value="Illegally equipped player (first instance for team)">
               Illegally equipped player (first instance for team)</option>
-            <option class="UB2YC" value="An excessive act to focus attention upon oneself">An excessive act to focus
-              attention upon oneself</option>
+            <option class="UB2YC" value="A excessive or prolonged act to focus attention upon oneself">A excessive
+              or prolonged act to focus attention upon oneself</option>
             <option class="UB2YC" value="DOGSO by Handball & Advantage & Goal">DOGSO by Handball & Advantage & Goal</option>
             <option class="UB2YC" value="DOGSO by Foul & Advantage & Goal">DOGSO by Foul & Advantage & Goal</option>
             <option class="UB2YC" value="DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick">DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick</option>
+            <option class="UB2YC" value="Use of alcohol, use of tobacco, to be under the influence">Use of alcohol, use of tobacco, to be under the influence</option>
             <option class="EnteringLeaving2YC" value=" entering the field of play">Entering</option>
             <option class="EnteringLeaving2YC" value=" leaving the field of play">Leaving</option>
             <option class="Dissent2YC" value=" by word of mouth">by word of mouth</option>

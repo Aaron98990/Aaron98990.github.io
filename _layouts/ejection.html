@@ -62,6 +62,7 @@ select {
             <option value="subsequent caution">Subsequent Caution</option>
             <option value="Serious Foul Play">Serious Foul Play</option>
             <option value="Spitting at ">Spitting at Someone</option>
+            <option value="Biting at ">Spitting at Someone</option>
             <option value="Using insulting, offensive or abusive language towards ">Offensive or abusive language (includes taunting)</option>
             <option value="Using insulting, offensive or abusive gesture towards ">Offensive or abusive gesture (includes taunting)</option>
             <option value="illegally entering the field where a fight is taking place">illegally entering the field where a fight is taking place</option>
@@ -530,13 +531,13 @@ select {
       
 
     }
-    else if (elem.id == "ejectionOffenseForm" && (ejectionOffenseForm.value == "Spitting at " || ejectionOffenseForm.value == "violent conduct towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive language towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive gesture towards " )) {
+    else if (elem.id == "ejectionOffenseForm" && (ejectionOffenseForm.value == "Spitting at " || ejectionOffenseForm.value == "Biting at " || ejectionOffenseForm.value == "violent conduct towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive language towards " || ejectionOffenseForm.value == "Using insulting, offensive or abusive gesture towards " )) {
       document.getElementById("ejectionOffenseSeriousFoulPlay").style.display = "none";
       ejectionOffenseTowardsForm.style.visibility = "visible"
       ejectionOffenseSeriousFoulPlay.innerHTML = ""
       ejectionOffenseTowardsForm.style.display = 'block';
       ejectionOffenseSeriousFoulPlayForm.style.display = "none"
-      if (ejectionOffenseForm.value != "Spitting at "){
+      if (ejectionOffenseForm.value != "Spitting at " && ejectionOffenseForm.value != "Biting at "){
         abusiveLanguageArea.style.display = "block"
       }
       document.getElementById("ejectionOffenseTowards").style.display = "inline"; 

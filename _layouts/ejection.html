@@ -510,7 +510,7 @@ if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gest
       ejectionOffenseTowards.style.display = 'block'; 
       if (ejectionOffenseForm.value.toLowerCase().includes("serious")){
         ejectionOffenseTowardsForm.style.display = 'none';  
-        ejectionOffenseTowards.value = ''; 
+        document.getElementById("ejectionOffenseTowards").style.display = "none"; 
       }
     
       if (ejectionOffenseForm.value != "Spitting at " && ejectionOffenseForm.value != "Biting at "){
@@ -521,7 +521,7 @@ if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gest
 
     } else if (elem.id == "ejectionOffenseForm") {
       ejectionOffenseTowardsForm.style.display = 'none';
-      ejectionOffenseTowards.value = ""
+      document.getElementById("ejectionOffenseTowards").style.display = "none"; 
       abusiveLanguageArea.style.display = "none"
     }
 

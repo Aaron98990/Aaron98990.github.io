@@ -495,10 +495,10 @@ select {
       abusiveLanguageHelper2.innerHTML = " "
       abusiveLanguageHint.innerHTML = "Factually describe the offense in one to three sentences. Use the ejected person's name. Where was the impact (face, ankle, etc.)"
       if (elem.value.toLowerCase().includes("violent")){
-        "For violent conduct include these terms: not challenging for the ball (if victim is player from opposing team) / excessive force"
+        abusiveLanguageHint.innerHTML += "For violent conduct include these terms: not challenging for the ball (only if victim is player from opposing team) / excessive force"
       }
       if (elem.value.toLowerCase().includes("serious")){
-        abusiveLanguageHint.innerHTML += "For serious foul play include these terms: opponent / challenge for the ball / excessive force"
+        abusiveLanguageHint.innerHTML += " For serious foul play include these terms: opponent / challenge for the ball / excessive force"
       }
         
       abusiveLanguageForm.placeholder = "Sarah Williams elbowed an opponent with excessive force in the face while challenging for the ball by attempting to head the ball."

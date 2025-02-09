@@ -758,7 +758,7 @@ if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gest
       ejection2YCUB.innerHTML = ""
     }
 
-    if (elem.id == "ejection1YCOffenseForm" && ejection1YCOffenseForm.value == "Unsporting Conduct - ") {
+    if (elem.id == "ejection1YCOffenseForm" && ejection1YCOffenseForm.value.toLowerCase().includes("unsporting")) {
       ejection1YCUB.style.visibility = "visible"
       ejection1YCUBForm.style.visibility = "visible"
       ejection1YCUBForm.value = ""

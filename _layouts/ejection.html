@@ -468,10 +468,10 @@ const logrc = [
 
 <script>
 
-    ejectionOffenseForm.innerHTM = ''
-    ejectionOffenseForm.innerHTM += '<option value="" selected disabled hidden>Select an Option</option>'
+    ejectionOffenseForm.innerHTML = ''
+    ejectionOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
     for (x in ncaarc) {
-      ejectionOffenseForm.innerHTM += `<option value="${ncaarc[x][0]}">${ncaarc[x][1]}</option>`
+      ejectionOffenseForm.innerHTML += `<option value="${ncaarc[x][0]}">${ncaarc[x][1]}</option>`
       
     }
   

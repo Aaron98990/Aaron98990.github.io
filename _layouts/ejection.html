@@ -483,24 +483,44 @@ const logrc = [
       ejection1YCOffenseForm.innerHTML += `<option value="${ncaayc[x][0]}">${ncaayc[x][1]}</option>`
       ejection2YCOffenseForm.innerHTML += `<option value="${ncaayc[x][0]}">${ncaayc[x][1]}</option>`
     }
+
+      ejection1YCUBForm.innerHTML = ''
+    ejection2YCUBForm.innerHTML = ''
+    ejection1YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+    ejection2YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+    for (x in ncaaub) {
+      ejection1YCUBForm.innerHTML += `<option value="${ncaaub[x][0]}">${ncaaub[x][1]}</option>`
+      ejection2YCUBForm.innerHTML += `<option value="${ncaaub[x][0]}">${ncaaub[x][1]}</option>`
+    }
   }
 
     function log(){
-        ejectionOffenseForm.innerHTML = ''
-    ejectionOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
-    for (x in logrc) {
-      ejectionOffenseForm.innerHTML += `<option value="${logrc[x][0]}">${logrc[x][1]}</option>`
-    }
+      ejectionOffenseForm.innerHTML = ''
+      ejectionOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+      for (x in logrc) {
+        ejectionOffenseForm.innerHTML += `<option value="${logrc[x][0]}">${logrc[x][1]}</option>`
+      }
 
-      ejection1YCOffenseForm.innerHTML = ''
-      ejection2YCOffenseForm.innerHTML = ''
-    ejection1YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
-      ejection2YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
-    for (x in ncaayc) {
-      ejection1YCOffenseForm.innerHTML += `<option value="${logyc[x][0]}">${logyc[x][1]}</option>`
-      ejection2YCOffenseForm.innerHTML += `<option value="${logyc[x][0]}">${logyc[x][1]}</option>`
-    }
+        ejection1YCOffenseForm.innerHTML = ''
+        ejection2YCOffenseForm.innerHTML = ''
+        ejection1YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+        ejection2YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+        for (x in logyc) {
+          ejection1YCOffenseForm.innerHTML += `<option value="${logyc[x][0]}">${logyc[x][1]}</option>`
+          ejection2YCOffenseForm.innerHTML += `<option value="${logyc[x][0]}">${logyc[x][1]}</option>`
+        }
+
+        ejection1YCUBForm.innerHTML = ''
+        ejection2YCUBForm.innerHTML = ''
+        ejection1YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+        ejection2YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+        for (x in logub) {
+          ejection1YCUBForm.innerHTML += `<option value="${logub[x][0]}">${logub[x][1]}</option>`
+          ejection2YCUBForm.innerHTML += `<option value="${logub[x][0]}">${logub[x][1]}</option>`
+        }
   }
+
+
 
       function nfhs(){
         ejectionOffenseForm.innerHTML = ''
@@ -509,14 +529,23 @@ const logrc = [
           ejectionOffenseForm.innerHTML += `<option value="${nfhsrc[x][0]}">${nfhsrc[x][1]}</option>`
         }
 
-      ejection1YCOffenseForm.innerHTML = ''
-      ejection2YCOffenseForm.innerHTML = ''
-      ejection1YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
-      ejection2YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
-    for (x in nfhsyc) {
-      ejection1YCOffenseForm.innerHTML += `<option value="${nfhsyc[x][0]}">${nfhsyc[x][1]}</option>`
-      ejection2YCOffenseForm.innerHTML += `<option value="${nfhsyc[x][0]}">${nfhsyc[x][1]}</option>`
-    }
+        ejection1YCOffenseForm.innerHTML = ''
+        ejection2YCOffenseForm.innerHTML = ''
+        ejection1YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+        ejection2YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+        for (x in nfhsyc) {
+          ejection1YCOffenseForm.innerHTML += `<option value="${nfhsyc[x][0]}">${nfhsyc[x][1]}</option>`
+          ejection2YCOffenseForm.innerHTML += `<option value="${nfhsyc[x][0]}">${nfhsyc[x][1]}</option>`
+        }
+
+        ejection1YCUBForm.innerHTML = ''
+        ejection2YCUBForm.innerHTML = ''
+        ejection1YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+        ejection2YCOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
+        for (x in nfhsub) {
+          ejection1YCUBForm.innerHTML += `<option value="${nfhsub[x][0]}">${nfhsub[x][1]}</option>`
+          ejection2YCUBForm.innerHTML += `<option value="${nfhsub[x][0]}">${nfhsub[x][1]}</option>`
+        }
   }
 
   

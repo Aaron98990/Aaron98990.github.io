@@ -225,11 +225,11 @@ const logrc = [
           <select name="ejectionOffenseTowardsForm" onchange=myFunction(this) onkeyup=myFunction(this)
           id="ejectionOffenseTowardsForm" style="visibility:hidden;" required>
           <option value="" selected disabled hidden>Select an Option</option>
-          <option value="a player on the opposing team">Towards a player on the opposing team</option>
-          <option value="a coach on the opposing team">Towards a coach on the opposing team</option>
-          <option value="a teammate">Towards a teammate</option>
-          <option value="a game official">Towards a game official</option>
-          <option value="a spectator">Towards a spectator</option>
+          <option value="This was done towards a player on the opposing team. ">Towards a player on the opposing team</option>
+          <option value="This was done towards a coach on the opposing team. ">Towards a coach on the opposing team</option>
+          <option value="This was done towards a teammate. ">Towards a teammate</option>
+          <option value="This was done towards a match official. ">Towards a match official</option>
+          <option value="This was done towards a spectator. ">Towards a spectator</option>
         </select>
       </div>
 
@@ -445,8 +445,8 @@ const logrc = [
         <div id="report">
           <p><span id="ejectionName"></span> (<span id="ejectionRole"></span><span
               id="ejectionNumberHash">#</span><span id="ejectionNumber"></span>
-            - <span id="ejectionTeam"></span>) was shown the red card and ejected for "<span id="ejectionOffense"></span></span><span id="ejectionOffenseTowards"></span>"<span id="abusiveLanguageHelper"></span><span id="abusiveLanguage"></span><span id="abusiveLanguageHelper2"></span>
-            The offense occurred <span id="ejectionSide"></span> <span id="ejectionArea"></span> <span
+            - <span id="ejectionTeam"></span>) was shown the red card and ejected for "<span id="ejectionOffense"></span></span>"<span id="abusiveLanguageHelper"></span><span id="abusiveLanguage"></span><span id="abusiveLanguageHelper2"></span>
+            <span id="ejectionOffenseTowards"></span>The offense occurred <span id="ejectionSide"></span> <span id="ejectionArea"></span> <span
               id="ejectionTime"></span> <span id="ejectionTimeUpDown"></span> <span id="ejectionPeriod"></span><span
               id="ejectionOvertime"></span>. There was no further incident with the ejected participant.
           </p>

@@ -2,6 +2,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HS Red Card Form</title>
+  <a>2024-25 NFHS</a> / <a>2024-2025 NCAA</a> / <a>2024/25 IFAB+FIFA-</a>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DW7QMEG5H"></script>
     <script>
@@ -165,6 +166,13 @@ const logrc = [
 ]
 
     ncaaub = []
+
+    ejectionOffenseForm.innerHTM = ''
+    ejectionOffenseForm.innerHTM += '<option value="" selected disabled hidden>Select an Option</option>'
+    for (x in ncaarc) {
+      ejectionOffenseForm.innerHTM += `<option value="${x[ncaarc][0]}">${x[ncaarc][1]}</option>`
+      
+    }
     
   </script>
 <h1 class="text-center">Red Card Form</h1>

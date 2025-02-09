@@ -661,7 +661,7 @@ const logrc = [
     /* END DUPLICATE OF ABOVE */
 
     
-    if (elem.id == "ejectionOffenseForm" && !elem.value.toLowerCase().includes("violent") &&  !elem.value.toLowerCase().includes("spitting") && !elem.value.toLowerCase().includes("biting")){
+    if (elem.id == "ejectionOffenseForm" && !elem.value.toLowerCase().includes("violent") && !elem.value.toLowerCase().includes("assulting") && !elem.value.toLowerCase().includes("fighting") &&  !elem.value.toLowerCase().includes("spitting") && !elem.value.toLowerCase().includes("biting")){
       ejectionSideArea.style.display = "none"
       ejectionSide.innerHTML = ""
 
@@ -687,7 +687,7 @@ const logrc = [
       abusiveLanguageHint.innerHTML = "Exactly quote all abusive language. Write motherfucker. Not m*&!$#@ucker"
       abusiveLanguageForm.placeholder = "I hope you die on your way home, fucking bitch."
       abusiveLanguageForm.rows = "3"
-    } else if (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting")){
+    } else if (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("assulting") || elem.value.toLowerCase().includes("fighting") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting")){
       abusiveLanguageArea.style.display = "block"
       abusiveLanguage.style.display = "inline"
       abusiveLanguageHelper.innerHTML = ". "

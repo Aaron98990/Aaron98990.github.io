@@ -669,7 +669,7 @@ const logrc = [
       ejectionSideArea.style.display = "block"
     }
 
-    if (elem.id == "ejectionOffenseForm" && (ejectionOffenseForm.value == "subsequent caution")) {
+    if (elem.id == "ejectionOffenseForm" && (ejectionOffenseForm.value.toLowerCase().includes("subsequent caution") || ejectionOffenseForm.value.toLowerCase().includes("second caution"))) {
       document.getElementById("subsequent-caution").style.display = "block";
       document.getElementById("subsequent-caution-form").style.display = "block";
       document.getElementById("ejectionOffenseTowards").style.display = "none"; 

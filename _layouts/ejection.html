@@ -731,7 +731,7 @@ if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gest
     }
 
 
-    if (elem.id == "ejection2YCOffenseForm" && ejection2YCOffenseForm.value == "Unsporting Conduct - ") {
+    if (elem.id == "ejection2YCOffenseForm" && ejection2YCOffenseForm.value.toLowerCase().includes("unsporting")) {
       ejection2YCUB.style.visibility = "visible"
       ejection2YCUBForm.style.visibility = "visible"
       ejection2YCUBForm.value = ""

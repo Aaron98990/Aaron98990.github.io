@@ -167,12 +167,7 @@ const logrc = [
 
     ncaaub = []
 
-    ejectionOffenseForm.innerHTM = ''
-    ejectionOffenseForm.innerHTM += '<option value="" selected disabled hidden>Select an Option</option>'
-    for (x in ncaarc) {
-      ejectionOffenseForm.innerHTM += `<option value="${x[ncaarc][0]}">${x[ncaarc][1]}</option>`
-      
-    }
+
     
   </script>
 <h1 class="text-center">Red Card Form</h1>
@@ -472,6 +467,14 @@ const logrc = [
 </div>
 
 <script>
+
+    ejectionOffenseForm.innerHTM = ''
+    ejectionOffenseForm.innerHTM += '<option value="" selected disabled hidden>Select an Option</option>'
+    for (x in ncaarc) {
+      ejectionOffenseForm.innerHTM += `<option value="${x[ncaarc][0]}">${x[ncaarc][1]}</option>`
+      
+    }
+  
   document.getElementById("subsequent-caution-form").style.display = "none";
   function isHidden(el) {
     var style = window.getComputedStyle(el);

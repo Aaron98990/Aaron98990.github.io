@@ -466,7 +466,13 @@ const logrc = [
 
 <script>
 
-  function ncaa(){
+  function ncaa(elem){
+
+    document.querySelectorAll(".rulebook").forEach(element => {
+  element.style.backgroundColor = 'white';
+});
+elem.style.backgroundColor = "yellow";
+    
         ejectionOffenseForm.innerHTML = ''
     ejectionOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
     for (x in ncaarc) {
@@ -492,12 +498,12 @@ const logrc = [
     }
   }
 
-    function log(){
+    function log(elem){
       
 document.querySelectorAll(".rulebook").forEach(element => {
   element.style.backgroundColor = 'white';
 });
-this.style.backgroundColor = "yellow";
+elem.style.backgroundColor = "yellow";
       
       ejectionOffenseForm.innerHTML = ''
       ejectionOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
@@ -526,7 +532,13 @@ this.style.backgroundColor = "yellow";
 
 
 
-      function nfhs(){
+      function nfhs(elem){
+
+      document.querySelectorAll(".rulebook").forEach(element => {
+      element.style.backgroundColor = 'white';
+    });
+  elem.style.backgroundColor = "yellow";
+        
         ejectionOffenseForm.innerHTML = ''
         ejectionOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
         for (x in nfhsrc) {

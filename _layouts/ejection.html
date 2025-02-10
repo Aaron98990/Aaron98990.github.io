@@ -205,20 +205,6 @@ const logrc = [
           <label>Red Card Offense</label><br>
           <select name="ejectionOffenseForm" onchange=myFunction(this) onkeyup=myFunction(this) id="ejectionOffenseForm"
             required>
-            <option value="" selected disabled hidden>Select an Option</option>
-            <option value="violent conduct towards ">Violent Conduct</option>
-            <option value="subsequent caution">Subsequent Caution</option>
-            <option value="Serious Foul Play">Serious Foul Play</option>
-            <option value="Spitting at ">Spitting at Someone</option>
-            <option value="Biting at ">Biting at Someone</option>
-            <option value="Using insulting, offensive or abusive language towards ">Offensive or abusive language (includes taunting)</option>
-            <option value="Using insulting, offensive or abusive gesture towards ">Offensive or abusive gesture (includes taunting)</option>
-            <option value="illegally entering the field where a fight or altercation is taking place">illegally entering the field where a fight or altercation is taking place</option>
-            <option value="denying an obvious goal-scoring opportunity (DOGSO) by deliberatly handling the ball & Penalty kick/Free Kick">DOGSO by deliberatly handling the ball & Penalty/Free Kick</option>
-          <option value="denying an obvious goal-scoring opportunity (DOGSO) by Foul Outside the Penalty Area & Free Kick">
-            DOGSO by Foul Outside the Penalty Area & Free Kick</option>
-          <option value="denying an obvious goal-scoring opportunity (DOGSO) by Foul Inside the Penalty Area & No Attempt to play the ball & Penalty Kick">DOGSO by
-            Foul Inside the Penalty Area & No Attempt to play the ball & Penalty Kick</option>
           </select>
         </div>
 
@@ -310,39 +296,12 @@ const logrc = [
           First Yellow Card Offense<br>
           <select name="ejection1YCOffenseForm" id="ejection1YCOffenseForm" onchange=myFunction(this)
             onkeyup=myFunction(this)>
-            <option value="" selected disabled hidden>Select an Option</option>
-            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
-            <option value="Dissent by word of mouth">Dissent by word of mouth</option>
-            <option value="Dissent by action">Dissent by action</option>
-            <option value="encroachment during a restart">encroachment during a restart</option>
-            <option value="Persistent Infringement">Persistent Infringement</option>
-            <option value="incidental use of vulgar or profane language">Incidental use of vulgar or profane language</option>
-            <option value="Illegally entering the field">Illegally entering the field</option>
-            <option value="Illegally leaving the field">Illegally leaving the field</option>
-            <option value="use of an electronic communication device with on-field players during play">Illegal use
-              of an electronic communication device</option>
+ 
           </select><br>
 
           <select name="ejection1YCUBForm" id="ejection1YCUBForm" style="visibility:hidden;" onchange=myFunction(this)
             onkeyup=myFunction(this)>
-            <option class="UB1YC" class="UB1YC" value="" selected disabled hidden>Select an Option</option>
-            <option class="UB1YC" value="Reckless Play">Reckless Play</option>
-            <option class="UB1YC" value="Unnecessary delay">Unnecessary Delay</option>
-            <option class="UB1YC" value="Holding a shirt, shorts">Holding a shirt, shorts</option>
-            <option class="UB1YC" value="Deliberatly handling the ball to interfere with or stop a promising attack">Deliberatly handling the ball to interfere with or stop a promising attack (SPA)</option>
-            <option class="UB1YC" value="Foul that interferes with or stops a promising attack">Foul that interferes with or stops a promising attack (SPA)</option>
-            <option class="UB1YC" value="Coaching Outside the Team Area">Coaching Outside the Team Area</option>
-            <option class="UB1YC" value="Deliberate Verbal Tactics">Deliberate Verbal Tactics</option>
-            <option class="UB1YC" value="Faking an injury">Faking an injury</option>
-            <option class="UB1YC" value="Simulating a foul">Simulating a foul</option>
-            <option class="UB1YC" id="illegallyEquipped" value="Illegally equipped player (first instance for team)">
-              Illegally equipped player (first instance for team)</option>
-            <option class="UB1YC" value="A excessive or prolonged act to focus attention upon oneself">A excessive
-              or prolonged act to focus attention upon oneself</option>
-            <option class="UB1YC" value="DOGSO by deliberatly handling the ball & Advantage & Goal">DOGSO by deliberatly handling the ball & Advantage & Goal</option>
-            <option class="UB1YC" value="DOGSO by Foul & Advantage & Goal">DOGSO by Foul & Advantage & Goal</option>
-            <option class="UB1YC" value="DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick">DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick</option>
-            <option class="UB1YC" value="Use of alcohol, use of tobacco, to be under the influence">Use of alcohol, use of tobacco, to be under the influence</option>
+  
           </select><br>
 
           <label>Period of the First Yellow Card</label><br>
@@ -387,17 +346,7 @@ const logrc = [
           Second Yellow Card Offense<br>
           <select name="ejection2YCOffenseForm" id="ejection2YCOffenseForm" onchange=myFunction(this)
             onkeyup=myFunction(this)>
-            <option value="" selected disabled hidden>Select an Option</option>
-            <option value="Unsporting Conduct - ">Unsporting Conduct</option>
-            <option value="Dissent by word of mouth">Dissent by word of mouth</option>
-            <option value="Dissent by action">Dissent by action</option>
-            <option value="encroachment during a restart">encroachment during a restart</option>
-            <option value="Persistent Infringement">Persistent Infringement</option>
-            <option value="incidental use of vulgar or profane language">Incidental use of vulgar or profane language</option>
-            <option value="Illegally entering the field">Illegally entering the field</option>
-            <option value="Illegally leaving the field">Illegally leaving the field</option>
-            <option value="use of an electronic communication device with on-field players during play">Illegal use
-              of an electronic communication device</option>
+
             
           </select><br>
 
@@ -406,24 +355,7 @@ const logrc = [
 
           <select name="ejection2YCUBForm" id="ejection2YCUBForm" style="visibility:hidden;" onchange=myFunction(this)
             onkeyup=myFunction(this)>
-            <option class="UB2YC" value="" selected disabled hidden>Select an Option</option>
-            <option class="UB2YC" value="Reckless Play">Reckless Play</option>
-            <option class="UB2YC" value="Unnecessary delay">Unnecessary Delay</option>
-            <option class="UB2YC" value="Holding a shirt, shorts">Holding a shirt, shorts</option>
-            <option class="UB2YC" value="Deliberate handling the ball to interfere with or stop a promising attack">Deliberate handling the ball to interfere with or stop a promising attack (SPA)</option>
-            <option class="UB2YC" value="Foul that interferes with or stops a promising attack">Foul that interferes with or stops a promising attack (SPA)</option>
-            <option class="UB2YC" value="Coaching Outside the Team Area">Coaching Outside the Team Area</option>
-            <option class="UB2YC" value="Deliberate Verbal Tactics">Deliberate Verbal Tactics</option>
-            <option class="UB2YC" value="Faking an injury">Faking an injury</option>
-            <option class="UB2YC" value="Simulating a foul">Simulating a foul</option>
-            <option class="UB2YC" id="illegallyEquipped" value="Illegally equipped player (first instance for team)">
-              Illegally equipped player (first instance for team)</option>
-            <option class="UB2YC" value="A excessive or prolonged act to focus attention upon oneself">A excessive
-              or prolonged act to focus attention upon oneself</option>
-            <option class="UB2YC" value="DOGSO by deliberatly handling the ball & Advantage & Goal">DOGSO by deliberatly handling the ball & Advantage & Goal</option>
-            <option class="UB2YC" value="DOGSO by Foul & Advantage & Goal">DOGSO by Foul & Advantage & Goal</option>
-            <option class="UB2YC" value="DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick">DOGSO by Foul in Penalty Area & Attempt to play the ball & Penalty Kick</option>
-            <option class="UB2YC" value="Use of alcohol, use of tobacco, to be under the influence">Use of alcohol, use of tobacco, to be under the influence</option>
+
           </select><br>
 
 
@@ -467,6 +399,8 @@ const logrc = [
 </div>
 
 <script>
+
+  nfhs();
 
   var sentOffPhrasing = ""
   var matchPhrasing = ""

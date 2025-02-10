@@ -187,6 +187,7 @@ const logrc = [
             required>
             <option value="" selected disabled hidden>Select an Option</option>
             <option value="Player ">Player</option>
+            <option value="Substitute ">Substitute</option>
             <option value="Coach">Coach</option>
             </option>
           </select><br>
@@ -226,6 +227,7 @@ const logrc = [
           id="ejectionOffenseTowardsForm" style="visibility:hidden;" required>
           <option value="" selected disabled hidden>Select an Option</option>
           <option value="This was done towards a player on the opposing team. ">Towards a player on the opposing team</option>
+          <option value="This was done towards a substitute on the opposing team. ">Towards a substitute on the opposing team</option>
           <option value="This was done towards a coach on the opposing team. ">Towards a coach on the opposing team</option>
           <option value="This was done towards a teammate. ">Towards a teammate</option>
           <option value="This was done towards a match official. ">Towards a match official</option>
@@ -363,7 +365,7 @@ const logrc = [
             <option value="first overtime period">First Overtime Period</option>
             <option value="between the end of the first overtime period and the end of the second overtime period">Between First and Second Overtime Period</option>
             <option value="second overtime period">Second Overtime Period</option>
-            <option value="between the end of the second overtime period and the start of kicks from the penalty mark">Between Second Overtime Period and Kicks from the Penalty Mark
+            <option value="between the end of the second overtime period and the start of penalties">Between Second Overtime Period and Penalties
             </option>
             <option value="during penalties">Penalties</option>
           </select><br>
@@ -445,17 +447,17 @@ const logrc = [
         <div id="report">
           <p><span id="ejectionName"></span> (<span id="ejectionRole"></span><span
               id="ejectionNumberHash">#</span><span id="ejectionNumber"></span>
-            - <span id="ejectionTeam"></span>) was shown the red card and ejected for "<span id="ejectionOffense"></span></span>"<span id="abusiveLanguageHelper"></span><span id="abusiveLanguage"></span><span id="abusiveLanguageHelper2"></span>
+            - <span id="ejectionTeam"></span>) was shown the red card and <span class="phrasing">ejected</span> for "<span id="ejectionOffense"></span></span>"<span id="abusiveLanguageHelper"></span><span id="abusiveLanguage"></span><span id="abusiveLanguageHelper2"></span>
             <span id="ejectionOffenseTowards"></span>The offense occurred <span id="ejectionSide"></span> <span id="ejectionArea"></span> <span
               id="ejectionTime"></span> <span id="ejectionTimeUpDown"></span> <span id="ejectionPeriod"></span><span
-              id="ejectionOvertime"></span>. There was no further incident with the ejected participant.
+              id="ejectionOvertime"></span>. There was no further incident with the <span class="phrasing">ejected</span> participant.
           </p>
           <p id="subsequent-caution" style="display:none;">
             The first yellow card was shown for "<span
               id="ejection1YCOffense"></span><span id="ejection1YCUB"></span>" <span
               id="ejection1YCTime"></span> <span id="ejection1YCTimeUpDown"></span> <span id="ejection1YCPeriod"></span><span
               id="ejection1YCOvertime"></span>.
-            The subsequent yellow card was shown for "<span
+            The <span class="phrasing">subsequent yellow card</span> was shown for "<span
               id="ejection2YCOffense"></span><span id="ejection2YCUB"></span>". 
           </p>
         </div>
@@ -466,7 +468,20 @@ const logrc = [
 
 <script>
 
+  var sentOffPhrasing = ""
+  var matchPhrasing = ""
+  var extraTimePhrasing = ""
+  var offensePhrasing = ""
+  var teamOfficialPhrasing = ""
+
   function ncaa(elem){
+
+    sentOffPhrasing = "ejected"
+    matchPhrasing = "game"
+    extraTimePhrasing = "overtime"
+    offensePhrasing = "infringement"
+    teamOfficialPhrasing = "bench personel"
+    
 
     document.querySelectorAll(".rulebook").forEach(element => {
   element.style.backgroundColor = 'white';
@@ -499,6 +514,18 @@ elem.style.backgroundColor = "yellow";
   }
 
     function log(elem){
+
+        var sentOffPhrasing = "sent-off"
+  var matchPhrasing = "match"
+  var extraTimePhrasing = "extra time"
+  var offensePhrasing = "offense"
+  var teamOfficialPhrasing = "team official"
+
+    document.querySelectorAll(".phrasing").forEach(element => {
+      if (element.innerText == "ejected"){
+        element.innerText = "sent-off"
+    }
+});
       
 document.querySelectorAll(".rulebook").forEach(element => {
   element.style.backgroundColor = 'white';
@@ -533,6 +560,12 @@ elem.style.backgroundColor = "yellow";
 
 
       function nfhs(elem){
+
+          sentOffPhrasing = "ejected"
+          matchPhrasing = "match"
+          extraTimePhrasing = "extra time"
+          offensePhrasing = "offense"
+          teamOfficialPhrasing = "team official"
 
       document.querySelectorAll(".rulebook").forEach(element => {
       element.style.backgroundColor = 'white';

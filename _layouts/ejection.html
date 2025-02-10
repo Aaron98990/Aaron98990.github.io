@@ -505,11 +505,12 @@ elem.style.backgroundColor = "yellow";
           teamOfficialPhrasing = "team official"
 
       document.querySelectorAll(".rulebook").forEach(element => {
-      element.style.backgroundColor = 'white';
+        element.style.backgroundColor = 'white';
+            if (element.innerText.toLowercase().includes("nfhs")){
+              element.style.backgroundColor = "yellow";
+            }
     });
-    if (elem){
-  elem.style.backgroundColor = "yellow";
-  }
+
         
         ejectionOffenseForm.innerHTML = ''
         ejectionOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
@@ -731,7 +732,7 @@ elem.style.backgroundColor = "yellow";
     }
 
 
-if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("language") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting"))) {
+if (elem.id == "ejectionOffenseForm" && (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("assulting") || elem.value.toLowerCase().includes("action") || elem.value.toLowerCase().includes("fighting") ||  elem.value.toLowerCase().includes("language") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting"))) {
       ejectionOffenseTowardsForm.style.visibility = "visible"
       ejectionOffenseTowardsForm.style.display = 'block';
       ejectionOffenseTowards.style.display = 'inline'; 

@@ -658,7 +658,7 @@ elem.style.backgroundColor = "yellow";
 
 
 
-    if (elem.value == "Player " && elem.id == "ejectionRoleForm") {
+    if ( (elem.value.toLowerCase().includes("player") || elem.value.toLowerCase().includes("substitute")) && elem.id == "ejectionRoleForm") {
       ejectionNumberArea.style.display = "block"
       document.querySelector("#ejectionNumber").innerHTML = document.querySelector("#ejectionNumberForm").value
       ejectionNumberHash.innerHTML = "#"
@@ -761,20 +761,14 @@ elem.style.backgroundColor = "yellow";
       document.getElementById("subsequent-caution-form").style.display = "none";
     }
 
-    if (elem.id == "ejectionOffenseForm" && elem.value.toLowerCase().includes("language")){
-      abusiveLanguageArea.style.display = "block"
-      abusiveLanguage.style.display = "inline"
-      abusiveLanguageHelper.innerHTML = " by saying \""
-      abusiveLanguageHelper2.innerHTML = "\""
-      abusiveLanguageHint.innerHTML = "Exactly quote all abusive language. Write motherfucker. Not m*&!$#@ucker"
-      abusiveLanguageForm.placeholder = "I hope you die on your way home, fucking bitch."
-      abusiveLanguageForm.rows = "3"
-    } else if (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("assulting") || elem.value.toLowerCase().includes("fighting") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting")){
+     if (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("assulting") || elem.value.toLowerCase().includes("fighting") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting")){
       abusiveLanguageArea.style.display = "block"
       abusiveLanguage.style.display = "inline"
       abusiveLanguageHelper.innerHTML = ". "
       abusiveLanguageHelper2.innerHTML = " "
       abusiveLanguageHint.innerHTML = "Factually describe the offense in one to three sentences. Use the ejected person's name. Where was the impact (face, ankle, etc.)"
+      
+      
       if (elem.value.toLowerCase().includes("violent")){
         abusiveLanguageHint.innerHTML += "For violent conduct include these terms: not challenging for the ball (only if victim is player from opposing team) / excessive force"
       }
@@ -784,6 +778,14 @@ elem.style.backgroundColor = "yellow";
         
       abusiveLanguageForm.placeholder = "Sarah Williams elbowed an opponent with excessive force in the face while challenging for the ball by attempting to head the ball."
       abusiveLanguageForm.rows = "5"
+    } else if (elem.id == "ejectionOffenseForm" && elem.value.toLowerCase().includes("language")){
+      abusiveLanguageArea.style.display = "block"
+      abusiveLanguage.style.display = "inline"
+      abusiveLanguageHelper.innerHTML = " by saying \""
+      abusiveLanguageHelper2.innerHTML = "\""
+      abusiveLanguageHint.innerHTML = "Exactly quote all abusive language. Write motherfucker. Not m*&!$#@ucker"
+      abusiveLanguageForm.placeholder = "I hope you die on your way home, fucking bitch."
+      abusiveLanguageForm.rows = "3"
     } else if (elem.id == "ejectionOffenseForm"){
       abusiveLanguageArea.style.display = "none"
       abusiveLanguage.style.display = "none"

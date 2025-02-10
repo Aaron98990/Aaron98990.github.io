@@ -178,11 +178,11 @@ const logrc = [
       <form id="myForm">
 
         <div style="background-color:rgb(255, 242, 242);">
-          <label for="fname">Full Name of Ejected Participant</label><br>
+          <label for="fname">Full name of <span class="phrasing">ejected</span> Participant</label><br>
           <input id="ejectionNameForm" onchange=myFunction(this) onkeyup=myFunction(this) type="text" value=""
             required><br>
 
-          <label>Role of Ejected Participant</label><br>
+          <label>Role of <span class="phrasing">ejected</span> participant</label><br>
           <select name="ejectionRoleForm" onchange=myFunction(this) onkeyup=myFunction(this) id="ejectionRoleForm"
             required>
             <option value="" selected disabled hidden>Select an Option</option>
@@ -193,11 +193,11 @@ const logrc = [
           </select><br>
 
           <div id="ejectionNumberArea" style="display:none">
-          <label>Jersey Number of Ejected Player</label><br>
+          <label>Jersey number of <span class="phrasing">ejected</span> player or substitute</label><br>
           <input onchange=myFunction(this) onkeyup=myFunction(this) type="number" value="" id="ejectionNumberForm"><br>
           </div>
 
-          <label>Team of the Ejected Participant</label><br>
+          <label>Team of the <span class="phrasing">ejected</span> participant</label><br>
           <input id="ejectionTeamForm" onchange=myFunction(this) onkeyup=myFunction(this) type="text" value=""
             required><br>
 
@@ -230,7 +230,7 @@ const logrc = [
           <option value="This was done towards a substitute on the opposing team. ">Towards a substitute on the opposing team</option>
           <option value="This was done towards a coach on the opposing team. ">Towards a coach on the opposing team</option>
           <option value="This was done towards a teammate. ">Towards a teammate</option>
-          <option value="This was done towards a match official. ">Towards a match official</option>
+          <option value="This was done towards a match official. ">Towards a <span class="phrasing">match</span> official</option>
           <option value="This was done towards a spectator. ">Towards a spectator</option>
         </select>
       </div>
@@ -268,7 +268,7 @@ const logrc = [
             <option value="near the corner flag">near the corner flag </option>
           </select><br>
 
-          <label>Period the Participant was Ejected</label><br>
+          <label>Period the participant was <span class="phrasing">Ejected</span></label><br>
           <select name="ejectionPeriodForm" id="ejectionPeriodForm" onchange=myFunction(this) onkeyup=myFunction(this)
             required>
             <option value="" selected disabled hidden>Select an Option</option>
@@ -525,6 +525,8 @@ elem.style.backgroundColor = "yellow";
       if (element.innerText == "ejected"){
         element.innerText = "sent-off"
     }
+      element.replace("subsequent", "second")
+      element.replace("game", "match")
 });
       
 document.querySelectorAll(".rulebook").forEach(element => {

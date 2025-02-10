@@ -167,7 +167,10 @@ const logrc = [
 
     const ncaaub = []
 
+const logextratime = ["between end of regular time and start of tie breaker", "first half of extra time", "between first and second half of extra time", "second half of extra time", "between second half of extra time and penalties", "penalties"]
+const ncaaextratime = ["between end of regulation time and start of tie breaker", "first overtime period", "between first and second overtime period", "second overtime period", "between second overtime period and penalties", "penalties"]
 
+const nfhsextratime = ncaaextratime
     
   </script>
 <h1 class="text-center">Red Card Form</h1>
@@ -325,7 +328,7 @@ const logrc = [
             <option value="first overtime period">First <span class="phrasing">Overtime Period</span></option>
             <option value="between the end of the first overtime period and the end of the second overtime period">Between First and Second <span class="phrasing">Overtime Period</span></option>
             <option value="second overtime period">Second <span class="phrasing">Overtime Period</span></option>
-            <option value="between the end of the second overtime period and the start of penalties">Between Second <span class="phrasing">Overtime Period</span> and Penalties
+            <option value="between the end of the second <span>overtime period<spa and the start of penalties">Between Second <span class="phrasing">Overtime Period</span> and Penalties
             </option>
             <option value="during penalties">Penalties</option>
           </select><br>
@@ -402,13 +405,6 @@ const logrc = [
 <script>
 
   
-
-  var sentOffPhrasing = ""
-  var matchPhrasing = ""
-  var extraTimePhrasing = ""
-  var offensePhrasing = ""
-  var teamOfficialPhrasing = ""
-
   function ncaa(elem){
 
     sentOffPhrasing = "ejected"
@@ -462,8 +458,8 @@ elem.style.backgroundColor = "yellow";
     }
       element.innerText.replace("subsequent", "second")
       element.innerText.replace("game", "match")
-      element.innerText.replace("infringement", "offense")
-      
+      element.innerText.replace("overtime period", "half of extra time")
+      element.innerText.replace("infringement", "offense")  
 });
       
 document.querySelectorAll(".rulebook").forEach(element => {
@@ -485,6 +481,8 @@ elem.style.backgroundColor = "yellow";
           ejection1YCOffenseForm.innerHTML += `<option value="${logyc[x][0]}">${logyc[x][1]}</option>`
           ejection2YCOffenseForm.innerHTML += `<option value="${logyc[x][0]}">${logyc[x][1]}</option>`
         }
+        
+        
 
         ejection1YCUBForm.innerHTML = ''
         ejection2YCUBForm.innerHTML = ''

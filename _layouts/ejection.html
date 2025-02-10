@@ -229,19 +229,17 @@ const logrc = [
         </div>
 
           <div id="ejectionSideArea" style="display: none;">
-          <label>Red Card - Area of Offense (Choose the Best)</label><br>
-          <select name="ejectionSideForm" onchange=myFunction(this) onkeyup=myFunction(this) id="ejectionSideForm"
-            required>
-            <option value="" selected disabled hidden>Select an Option</option>
-            <option value="in the offender's defending half of the field">Offender's Defending Half</option>
-            <option value="in the offender's attacking half of the field">Offender's Attacking Half</option>
-            <option value="near the midway line">near the midway line</option>
-            <option value="in the team area">Team Area</option>
-            <option value="in the spectators' area">Spectators' area</option>
-          </select><br>
-          </div>
-
-          <select name="ejectionAreaForm" onchange=myFunction(this) onkeyup=myFunction(this) style="display: none;"
+            <label>Red Card - Area of Offense (Choose the Best)</label><br>
+            <select name="ejectionSideForm" onchange=myFunction(this) onkeyup=myFunction(this) id="ejectionSideForm"
+              required>
+              <option value="" selected disabled hidden>Select an Option</option>
+              <option value="in the offender's defending half of the field">Offender's Defending Half</option>
+              <option value="in the offender's attacking half of the field">Offender's Attacking Half</option>
+              <option value="near the midway line">near the midway line</option>
+              <option value="in the team area">Team Area</option>
+              <option value="in the spectators' area">Spectators' area</option>
+            </select><br>
+             <select name="ejectionAreaForm" onchange=myFunction(this) onkeyup=myFunction(this) style="display: none;"
             id="ejectionAreaForm" required>
             <option value="" selected disabled hidden>Select an Option</option>
             <option value="in the goal">in the goal</option>
@@ -253,6 +251,9 @@ const logrc = [
             <option value="about 30 yards from the goal line">about 30 yards from the goal line </option>
             <option value="near the corner flag">near the corner flag </option>
           </select><br>
+          </div>
+
+
 
           <label>Period the participant was <span class="phrasing">ejected</span></label><br>
           <select name="ejectionPeriodForm" id="ejectionPeriodForm" onchange=myFunction(this) onkeyup=myFunction(this)
@@ -697,7 +698,7 @@ elem.style.backgroundColor = "yellow";
       document.getElementById("subsequent-caution-form").style.display = "none";
     }
 
-     if (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("assulting") || elem.value.toLowerCase().includes("fighting") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting")){
+     if (elem.value.toLowerCase().includes("gesture") || elem.value.toLowerCase().includes("obscene") || elem.value.toLowerCase().includes("violent") || elem.value.toLowerCase().includes("assulting") || elem.value.toLowerCase().includes("fighting") || elem.value.toLowerCase().includes("serious") || elem.value.toLowerCase().includes("biting") || elem.value.toLowerCase().includes("spitting")){
       abusiveLanguageArea.style.display = "block"
       abusiveLanguage.style.display = "inline"
       abusiveLanguageHelper.innerHTML = ". "

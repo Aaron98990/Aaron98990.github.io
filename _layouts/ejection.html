@@ -507,7 +507,9 @@ elem.style.backgroundColor = "yellow";
       document.querySelectorAll(".rulebook").forEach(element => {
       element.style.backgroundColor = 'white';
     });
+    if (elem){
   elem.style.backgroundColor = "yellow";
+  }
         
         ejectionOffenseForm.innerHTML = ''
         ejectionOffenseForm.innerHTML += '<option value="" selected disabled hidden>Select an Option</option>'
@@ -534,7 +536,7 @@ elem.style.backgroundColor = "yellow";
         }
   }
 
-  nfhs();
+  nfhs(null);
 
   
   document.getElementById("subsequent-caution-form").style.display = "none";

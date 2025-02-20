@@ -204,9 +204,10 @@ color: white;
 			font-size: 3rem;
 			font-family: Verdana,Helvetica, Garamond,  Arial;
 			width: 200px;
-			line-height: 2.7rem;
+			line-height: 2.9rem;
 			margin: 0;
-			margin-bottom: 15px;
+			margin-bottom: 24px;
+			margin-top: 24px;
 		}
 }
 

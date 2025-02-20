@@ -127,31 +127,13 @@ img:hover {
 
 @keyframes background-hover {
     0% {
-        background-color: #ff0000;
-    }
-    20% {
-        background-color: #ff9d00;
-    }
-    35% {
-        background-color: #ccf500;
+        background-color: inherit;
     }
     50% {
-        background-color: rgb(6, 237, 45);
-    }
-    70% {
-        background-color: rgb(14, 21, 223);
-    }
-    90% {
-        background-color: rgb(107, 41, 221);
-    }
-    95% {
-        background-color: rgb(210, 136, 179);
-    }
-    98% {
-        background-color: rgb(220, 106, 106);
+        background-color: yellow;
     }
     100% {
-        background-color: #ff0000
+        background-color: inherit;
     }
 }
     

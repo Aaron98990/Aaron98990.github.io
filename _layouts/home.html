@@ -44,9 +44,9 @@
     <div class="spacer">
     <div class="tile animate__animated animate__fadeInDown" onmouseover="imageChange('game.jpg');">
         <div class="tile-body" >
-<h2 class="header">Tip Of the Tongue</h2>
+<h2 class="header">Tip Of the Tongue<span id="room-count-indicator" class="room-count-indicator" style="display: none;"></span></h2>
 <div class="icon"></div>
-<div class="description">Play Jeopardy, remotely! Three individuals compete in this game with a buzzer & scoring system! (Contact me to turn on server)</div>
+<div class="description">Play Jeopardy, remotely! Three individuals compete in this game with a buzzer & scoring system!</div>
 <button onclick="window.open('http://buzzin.feleke.xyz/','blank')">Website</button>
 </div>
 </div>
@@ -55,9 +55,9 @@
     <div class="spacer">
     <div class="tile animate__animated animate__fadeInDown" onmouseover="imageChange('wander.png');">
         <div class="tile-body" >
-<h2 class="header">City Wanderer</h2>
+<h2 class="header">City Wanderer<span id="city-wanderer-count-indicator" class="room-count-indicator" style="display: none;"></span></h2>
 <div class="icon"></div>
-<div class="description">Multiplayer game to guess the location on a map based on a video of someone walking in the city. (Contact me to turn on server)</div>
+<div class="description">Multiplayer game to guess the location on a map based on a video of someone walking in the city.</div>
 <button onclick="window.open('https://www.city-wanderer.com/geo','blank')">Website</button>
 </div>
 </div>
@@ -159,6 +159,65 @@ document.querySelector('#second-image').style.objectPosition = horizontalPercent
 document.querySelector('#second-image').style.objectPosition = "50% 0";
 	}
 }
+
+// Fetch room count for specific game types in the last 24 hours
+async function fetchRoomCount(gameType, indicatorId) {
+    try {
+        const response = await fetch('http://buzzin.feleke.xyz/rooms');
+        const rooms = await response.json();
+        
+        if (Array.isArray(rooms)) {
+            const now = new Date();
+            const twentyFourHoursAgo = new Date(now.getTime() - (24 * 60 * 60 * 1000));
+            
+            const filteredRooms = rooms.filter(room => {
+                const roomTime = new Date(room.createdAt || room.timestamp || room.date);
+                return room.gameType === gameType && roomTime >= twentyFourHoursAgo;
+            });
+            
+            const count = filteredRooms.length;
+            const indicator = document.getElementById(indicatorId);
+            
+            if (count > 0) {
+                indicator.textContent = `${count} room${count === 1 ? '' : 's'} in last 24h`;
+                indicator.style.display = 'inline-block';
+            } else {
+                indicator.style.display = 'none';
+            }
+        }
+    } catch (error) {
+        console.error(`Failed to fetch room data for ${gameType}:`, error);
+        // Hide indicator on error
+        const indicator = document.getElementById(indicatorId);
+        if (indicator) {
+            indicator.style.display = 'none';
+        }
+    }
+}
+
+// Fetch room count for Geo games (Tip of the Tongue)
+async function fetchGeoRoomCount() {
+    return fetchRoomCount('Buzz In', 'room-count-indicator');
+}
+
+// Fetch room count for City Wanderer games
+async function fetchCityWandererRoomCount() {
+    return fetchRoomCount('Geo', 'city-wanderer-count-indicator');
+}
+
+// Fetch all room counts
+async function fetchAllRoomCounts() {
+    await Promise.all([
+        fetchGeoRoomCount(),
+        fetchCityWandererRoomCount()
+    ]);
+}
+
+// Call the function when page loads
+document.addEventListener('DOMContentLoaded', fetchAllRoomCounts);
+
+// Refresh room count every 5 minutes
+setInterval(fetchAllRoomCounts, 5 * 60 * 1000);
 
 var links = document.links;
 for (var i = 0; i < links.length; i++) {

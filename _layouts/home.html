@@ -163,7 +163,7 @@ document.querySelector('#second-image').style.objectPosition = "50% 0";
 // Fetch room count for specific game types in the last 24 hours
 async function fetchRoomCount(gameType, indicatorId) {
     try {
-        const response = await fetch('http://buzzin.feleke.xyz/rooms');
+        const response = await fetch('https://buzzin.feleke.xyz/rooms');
         const rooms = await response.json();
         
         if (Array.isArray(rooms)) {

@@ -160,56 +160,51 @@ document.querySelector('#second-image').style.objectPosition = "50% 0";
 	}
 }
 
-// Fetch room count for specific game types in the last 24 hours
-async function fetchRoomCount(gameType, indicatorId) {
+// Fetch room count for Tip of the Tongue using buzzInCount endpoint
+async function fetchBuzzInRoomCount() {
     try {
-        const response = await fetch('https://buzzin.feleke.xyz/rooms');
-        const rooms = await response.json();
+        const response = await fetch('https://buzzin.feleke.xyz/buzzInCount');
+        const data = await response.json();
+        const count = data.count || 0;
+        const indicator = document.getElementById('room-count-indicator');
         
-        if (Array.isArray(rooms)) {
-            const now = new Date();
-            const twentyFourHoursAgo = new Date(now.getTime() - (24 * 60 * 60 * 1000));
-            
-            const filteredRooms = rooms.filter(room => {
-                const roomTime = new Date(room.createdAt || room.timestamp || room.date);
-                return room.gameType === gameType && roomTime >= twentyFourHoursAgo;
-            });
-            
-            const count = filteredRooms.length;
-            const indicator = document.getElementById(indicatorId);
-            
-            if (count > 0) {
-                indicator.textContent = `${count} room${count === 1 ? '' : 's'} in last 24h`;
-                indicator.style.display = 'inline-block';
-            } else {
-                indicator.style.display = 'none';
-            }
-        }
-    } catch (error) {
-        console.error(`Failed to fetch room data for ${gameType}:`, error);
-        // Hide indicator on error
-        const indicator = document.getElementById(indicatorId);
-        if (indicator) {
+        if (count > 0) {
+            indicator.textContent = `${count} room${count === 1 ? '' : 's'} in last 24h`;
+            indicator.style.display = 'inline-block';
+        } else {
             indicator.style.display = 'none';
         }
+    } catch (error) {
+        console.error('Failed to fetch buzz in room count:', error);
+        document.getElementById('room-count-indicator').style.display = 'none';
     }
 }
 
-// Fetch room count for Geo games (Tip of the Tongue)
+// Fetch room count for City Wanderer using geoCount endpoint
 async function fetchGeoRoomCount() {
-    return fetchRoomCount('Buzz In', 'room-count-indicator');
-}
-
-// Fetch room count for City Wanderer games
-async function fetchCityWandererRoomCount() {
-    return fetchRoomCount('Geo', 'city-wanderer-count-indicator');
+    try {
+        const response = await fetch('https://buzzin.feleke.xyz/geoCount');
+        const data = await response.json();
+        const count = data.count || 0;
+        const indicator = document.getElementById('city-wanderer-count-indicator');
+        
+        if (count > 0) {
+            indicator.textContent = `${count} room${count === 1 ? '' : 's'} in last 24h`;
+            indicator.style.display = 'inline-block';
+        } else {
+            indicator.style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Failed to fetch geo room count:', error);
+        document.getElementById('city-wanderer-count-indicator').style.display = 'none';
+    }
 }
 
 // Fetch all room counts
 async function fetchAllRoomCounts() {
     await Promise.all([
-        fetchGeoRoomCount(),
-        fetchCityWandererRoomCount()
+        fetchBuzzInRoomCount(),
+        fetchGeoRoomCount()
     ]);
 }
 

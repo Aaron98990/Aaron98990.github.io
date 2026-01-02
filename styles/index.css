@@ -30,6 +30,7 @@ background: linear-gradient( 143.6deg, #343949 20.79%, rgba(54, 1, 62, 0.88) 40.
     justify-content: center;
     border-radius: 15px;
     height: min-content;
+    background: lch(100 0 0 / 0.25);
 }
 
 .one-line{
@@ -54,11 +55,7 @@ background: linear-gradient( 143.6deg, #343949 20.79%, rgba(54, 1, 62, 0.88) 40.
 
 }
 
-.tile:hover{
-    animation: border-hover;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-}
+
 
 .spacer {
     padding: 10px;
@@ -151,6 +148,10 @@ img:hover {
 background-color: #343949;
 color: wheat;
 
+}
+
+.dark-mode .flex-container{
+    background: lch(24 10.69 275.61 / 0.6);
 }
 
 .dark-mode button {

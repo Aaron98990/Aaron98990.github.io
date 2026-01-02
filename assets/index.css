@@ -39,11 +39,7 @@
 
 }
 
-.tile:hover{
-    animation: border-hover;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-}
+
 
 .spacer {
     padding: 10px;
@@ -65,18 +61,6 @@ button:hover {
     opacity: 0.6;
 }
 
-
-@keyframes border-hover {
-    0% {
-        background-color: white;
-    }
-    50% {
-        background-color: rgb(236, 239, 242);
-    }
-    100% {
-         background-color: white;
-    }
-}
 
 h2 {
     font-size: 1.5em;

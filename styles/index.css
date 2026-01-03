@@ -177,6 +177,9 @@ color: white;
   	display: flex;
   	flex-direction: column;
   	width: 200px;
+	position: sticky;
+	top: 20px;
+	align-self: flex-start;
 	}
 	#pictures {
 		width:min-content;
@@ -251,7 +254,7 @@ margin: 0
         padding: 1px;
         border: 0;
         box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
-        color: blue;
+        color: #1a4e99;
         text-decoration: underline;
         display: block;
         width: 100%;
@@ -299,7 +302,7 @@ body {
         padding: 1px;
         border: 0;
         box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
-        color: blue;
+        color: #1a4e99;
         text-decoration: underline;
         display: block;
         width: 100%;

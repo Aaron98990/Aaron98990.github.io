@@ -70,7 +70,7 @@
 <div class="spacer">
 <div class="tile" onmouseover="imageChange('wii.png')">
     <div class="tile-body">
-    <h2 class="header">Wii Inspect</h2>
+    <h2 class="header">Wii Inspect<span id="wii-inspect-count-indicator" class="room-count-indicator" style="display: none;"></span></h2>
     <div class="icon"></div>
     <div class="description">Decode memories from the binary file to find high scores, stamps, and recent plays from Wii Sports Resort!</div>
     <button onclick="window.open('https://github.com/Aaron98990/wii-inspect','blank')">GitHub</button>
@@ -252,11 +252,32 @@ async function fetchGeoRoomCount() {
     }
 }
 
+// Fetch room count for Wii Inspect using wiiInspectCount endpoint
+async function fetchWiiInspectRoomCount() {
+    try {
+        const response = await fetch('https://buzzin.feleke.xyz/wiiInspectCount');
+        const data = await response.json();
+        const count = data.count || 0;
+        const indicator = document.getElementById('wii-inspect-count-indicator');
+        
+        if (count > 0) {
+            indicator.textContent = `${count} script${count === 1 ? '' : 's'} ran in last 24h`;
+            indicator.style.display = 'inline-block';
+        } else {
+            indicator.style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Failed to fetch wii inspect room count:', error);
+        document.getElementById('wii-inspect-count-indicator').style.display = 'none';
+    }
+}
+
 // Fetch all room counts
 async function fetchAllRoomCounts() {
     await Promise.all([
         fetchBuzzInRoomCount(),
-        fetchGeoRoomCount()
+        fetchGeoRoomCount(),
+        fetchWiiInspectRoomCount()
     ]);
 }
 

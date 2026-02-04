@@ -1,0 +1,396 @@
+.container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.options {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.options h1 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.controls button:hover {
+  background: #0056b3;
+}
+
+.roundOptions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.roundOptions label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.round {
+  margin-bottom: 40px;
+  page-break-inside: avoid;
+}
+
+.round h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.gameBoard {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #333;
+  background: #000080;
+}
+
+.finalBoard {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  border: 2px solid #333;
+  background: #000080;
+}
+
+.category {
+  background: #000080;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #fff;
+  vertical-align: middle;
+}
+
+.category textarea {
+  width: 100%;
+  min-height: 60px;
+  background: transparent;
+  color: white;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.category textarea::placeholder {
+  color: #ccc;
+}
+
+.clue {
+  background: #000080;
+  color: white;
+  padding: 8px;
+  border: 1px solid #fff;
+  vertical-align: top;
+  position: relative;
+  min-height: 120px;
+}
+
+.clue.doubleDare {
+  background: #8B0000;
+}
+
+.clueControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.clueControls label {
+  color: white;
+  font-size: 11px;
+}
+
+.clueControls input[type="checkbox"] {
+  margin-right: 4px;
+}
+
+.deleteBtn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.deleteBtn:hover {
+  background: #c82333;
+}
+
+.clueContent {
+  margin-bottom: 8px;
+}
+
+.clueContent textarea {
+  width: 100%;
+  min-height: 60px;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 12px;
+  resize: vertical;
+  margin-bottom: 5px;
+}
+
+.clueContent input[type="text"] {
+  width: 100%;
+  background: transparent;
+  color: #90EE90;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.clueContent textarea::placeholder,
+.clueContent input::placeholder {
+  color: #ccc;
+}
+
+.dragHandle {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  cursor: grab;
+  color: #ccc;
+  font-size: 12px;
+  user-select: none;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.finalClue {
+  background: #000080;
+  color: white;
+  padding: 15px;
+  border: 1px solid #fff;
+  vertical-align: top;
+}
+
+.finalClue textarea {
+  width: 100%;
+  min-height: 80px;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 14px;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.finalClue input[type="text"] {
+  width: 100%;
+  background: transparent;
+  color: #90EE90;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  padding: 4px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modalContent h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.modalContent textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 12px;
+  resize: vertical;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: flex-end;
+}
+
+.modalButtons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modalButtons button:first-child {
+  background: #28a745;
+  color: white;
+}
+
+.modalButtons button:first-child:hover {
+  background: #218838;
+}
+
+.modalButtons button:last-child {
+  background: #6c757d;
+  color: white;
+}
+
+.modalButtons button:last-child:hover {
+  background: #5a6268;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 18px;
+}
+
+/* Print styles */
+@media print {
+  .options {
+    display: none;
+  }
+  
+  .clueControls,
+  .deleteBtn,
+  .dragHandle {
+    display: none;
+  }
+  
+  .clueContent textarea {
+    height: 100px !important;
+    font-size: 12px !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+  }
+  
+  .clueContent input[type="text"] {
+    color: green;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 12px !important;
+  }
+  
+  .round h2 {
+    margin: 0;
+    padding: 0;
+    position: static !important;
+  }
+  
+  .gameBoard,
+  .finalBoard {
+    border-collapse: collapse;
+    page-break-inside: avoid;
+  }
+  
+  .round {
+    page-break-before: always;
+  }
+  
+  .round:first-child {
+    page-break-before: auto;
+  }
+  
+  @page {
+    size: landscape;
+    zoom: 100%;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .gameBoard {
+    font-size: 12px;
+  }
+  
+  .clueContent textarea {
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .controls {
+    justify-content: center;
+  }
+  
+  .roundOptions {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .gameBoard,
+  .finalBoard {
+    font-size: 10px;
+  }
+  
+  .clueContent textarea {
+    min-height: 40px;
+    font-size: 11px;
+  }
+  
+  .clueContent input[type="text"] {
+    font-size: 11px;
+  }
+  
+  .category textarea {
+    font-size: 12px;
+  }
+}

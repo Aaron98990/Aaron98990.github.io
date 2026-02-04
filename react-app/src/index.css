@@ -1,0 +1,41 @@
+* {
+  font-family: ProximaNova, sans-serif;
+}
+
+body:not(.dark-mode) {
+  background: linear-gradient(
+    143.6deg,
+    rgba(192, 132, 252, 0) 20.79%,
+    rgba(232, 121, 249, 0.26) 40.92%,
+    rgba(204, 171, 238, 0) 70.35%
+  );
+}
+
+body {
+  background: linear-gradient(143.6deg, #343949 20.79%, rgba(54, 1, 62, 0.88) 40.92%, #343949 70.35%);
+  margin: 0;
+  padding: 0;
+}
+
+.dark-mode {
+  background-color: #343949;
+  color: wheat;
+}
+
+.dark-mode button {
+  color: white;
+}
+
+.dark-mode img {
+  background: white;
+}
+
+/* Global link styling */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}

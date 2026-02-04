@@ -1,0 +1,74 @@
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: left;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+  border-radius: 15px;
+  height: min-content;
+  background: lch(100 0 0 / 0.25);
+}
+
+.booksSection {
+  padding-top: 24px;
+  padding-bottom: 4px;
+}
+
+.booksTitle {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+  padding-top: 24px;
+  padding-bottom: 4px;
+}
+
+.grGridContainer {
+  /* customize grid container div here. eg: width: 500px; */
+  display: block;
+}
+
+.grGridBookContainer {
+  /* customize book cover container div here */
+  float: left;
+  width: 98px;
+  height: 160px;
+  padding: 0px 0px;
+  overflow: hidden;
+}
+
+/* Dark mode styles */
+:global(.dark-mode) .flexContainer {
+  background: lch(24 10.69 275.61 / 0.6);
+}
+
+/* Desktop layout */
+@media screen and (min-width: 1086px) {
+  .homeContainer {
+    display: flex;
+    flex-direction: row;
+    width: 1086px;
+    margin: auto;
+    gap: 36px;
+  }
+}
+
+/* Tablet layout */
+@media screen and (min-width: 630px) and (max-width: 1086px) {
+  .homeContainer {
+    width: 630px;
+    margin: auto;
+  }
+  
+  .spacer {
+    padding: 5px 5px;
+  }
+}
+
+/* Mobile layout */
+@media screen and (max-width: 630px) {
+  .spacer {
+    padding: 0;
+  }
+}

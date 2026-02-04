@@ -1,0 +1,157 @@
+.spacer {
+  padding: 10px;
+}
+
+.tile {
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  width: 250px;
+  height: 200px;
+}
+
+.tile:hover {
+  animation: borderHover 2s infinite;
+}
+
+.tileBody {
+  padding: 10px;
+}
+
+.header {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  font-family: ProximaNova, sans-serif;
+}
+
+.description {
+  padding: 10px 0px;
+}
+
+.button {
+  background-color: #1a4e99;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px;
+  width: max-content;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.button:hover {
+  opacity: 0.6;
+}
+
+@keyframes borderHover {
+  0% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: rgb(236, 239, 242);
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
+/* Dark mode styles */
+:global(.dark-mode) .tile {
+  box-shadow: 0 0 7px rgb(196 27 27 / 91%);
+}
+
+:global(.dark-mode) .tile:hover {
+  animation: darkModeHover 2s infinite;
+}
+
+:global(.dark-mode) .button {
+  color: white;
+}
+
+@keyframes darkModeHover {
+  0% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: #343949;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
+/* Responsive styles */
+@media screen and (min-width: 630px) and (max-width: 1086px) {
+  .description {
+    font-size: 14px !important;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  
+  .tile {
+    height: 150px;
+    width: 180px;
+  }
+
+  .header {
+    font-size: 18px;
+  }
+
+  .button {
+    padding: 1px;
+    border: 0;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
+    color: blue;
+    text-decoration: underline;
+    display: block;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .tileBody {
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .tile {
+    width: 100%;
+    height: min-content;
+    padding: auto 5px;
+    font-size: 14px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  .description {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .button {
+    padding: 1px;
+    border: 0;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
+    color: blue;
+    text-decoration: underline;
+    display: block;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .tileBody {
+    padding: 0 0;
+  }
+
+  :global(.dark-mode) .tile {
+    box-shadow: none;
+  }
+}
